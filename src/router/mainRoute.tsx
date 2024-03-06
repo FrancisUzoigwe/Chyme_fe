@@ -5,6 +5,8 @@ import Register from "../pages/auth/Register"
 import Signin from "../pages/auth/Signin"
 import MainLayout from "../layout/MainLayout"
 import HomeScreen from "../pages/home/HomeScreen"
+import PrivateRoute from "./PrivateRoute"
+import EmailScreen from "../pages/auth/EmailScreen"
 
 export const mainRoute = createBrowserRouter([
     {
@@ -14,6 +16,10 @@ export const mainRoute = createBrowserRouter([
     {
         path: "/signin",
         element: <Signin />
+    },
+    {
+        path: "/email",
+        element: <EmailScreen />
     },
     {
         path: "/",
@@ -27,7 +33,7 @@ export const mainRoute = createBrowserRouter([
     },
     {
         path: "/auth",
-        element: <MainLayout />,
+        element: <PrivateRoute><MainLayout /></PrivateRoute>,
         children: [
             {
                 index: true,

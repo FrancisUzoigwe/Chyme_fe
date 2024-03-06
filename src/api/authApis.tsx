@@ -1,0 +1,25 @@
+
+import axios from "axios"
+
+const url: string = "https://techify-be.onrender.com/api"
+
+export const registerApi = async (data: any) => {
+    try {
+        return await axios.post(`${url}/register`, data).then((res) => {
+            return res.data?.data
+        })
+    } catch (error: any) {
+        console.log(error)
+    }
+}
+
+
+export const signinApi = async (data: any) => {
+    try {
+        return await axios.post(`${url}/signin`, data).then((res) => {
+            return res.data?.data
+        })
+    } catch (error: any) {
+        console.log(error)
+    }
+}
