@@ -8,10 +8,8 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { Link, useNavigate } from "react-router-dom"
 import { registerApi } from "../../api/authApis"
 import LoadingPage from "./LoadingPage"
+import { motion } from "framer-motion"
 const Register = () => {
-
-
-
   const AuthSchema = yup.object({
     name: yup.string().required(),
     email: yup.string().required(),
@@ -39,13 +37,26 @@ const Register = () => {
   const onEye = () => {
     setEye(!eye)
   }
+
+
+  const motionVariant = {
+    animate: {
+      y: 0, opacity: 1, transition: {
+        duration: 0.5
+      }
+    },
+    initial: {
+      y: "-200px",
+      opacity: 0
+    }
+  }
   return (
     <div className="w-full h-screen flex justify-center items-center bg-purple-400 relative"
     >
       {loading && <LoadingPage />}
 
       <div className="w-full flex justify-center items-center">
-        <form onSubmit={onHandleSubmit} className="w-[400px] max-sm:w-[80%] h-[460px] flex flex-col items-center  bg-white rounded-lg">
+        <motion.form variants={motionVariant} initial="initial" animate="animate" onSubmit={onHandleSubmit} className="w-[400px] max-sm:w-[80%] h-[460px] flex flex-col items-center  bg-white rounded-lg">
           <div className="w-[90%] ">
             <div className="my-5 font-black text-2xl w-full flex items-center justify-center">Signup to <div><SiMastercomfig className="ml-3 mr-1 text-[#40196D]" /></div> Chyme</div>
             <div className="my-1 text-[14px]">To signup, please add an email address and a password to get started.</div>
@@ -95,7 +106,7 @@ const Register = () => {
           <div className="w-full h-auto flex justify-center ">
             <button className="px-36 rounded-lg py-[10px] text-white bg-[purple]" type="submit">Signup</button>
           </div>
-        </form>
+        </motion.form>
       </div>
     </div>
   )

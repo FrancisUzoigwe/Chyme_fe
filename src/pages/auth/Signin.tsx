@@ -10,6 +10,7 @@ import { signinApi, verifiedApi } from "../../api/authApis"
 import { useDispatch } from "react-redux"
 import { mainUser } from "../../global/globalState"
 import LoadingPage from "./LoadingPage"
+import { motion } from "framer-motion"
 const Signin = () => {
 
   const AuthSchema = yup.object({
@@ -47,13 +48,26 @@ const Signin = () => {
       verifiedApi(token!)
     }
   }, [])
+
+
+  const motionVariant = {
+    animate: {
+      y: 0, opacity: 1, transition: {
+        duration: 0.5
+      }
+    },
+    initial: {
+      y: "80px",
+      opacity: 0
+    }
+  }
   return (
     <div className="w-full h-screen flex justify-center items-center bg-purple-400"
     // style={{ background: `url(${map})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "right" }}
     >
       {loading && <LoadingPage />}
       <div className="w-full flex justify-center items-center">
-        <form onSubmit={onHandleSubmit} className="w-[400px] max-sm:w-[80%] h-[400px] flex flex-col items-center  bg-white rounded-lg">
+        <motion.form variants={motionVariant} initial="initial" animate="animate" onSubmit={onHandleSubmit} className="w-[400px] max-sm:w-[80%] h-[400px] flex flex-col items-center  bg-white rounded-lg">
           <div className="w-[90%] ">
             <div className="my-5 font-black text-2xl w-full flex items-center justify-center">Signin to <div><SiMastercomfig className="ml-3 mr-1 text-[#40196D]" /></div> Chyme</div>
             <div className="my-1 text-[14px]">To sign, input the email address and a password linked to your account.</div>
@@ -95,7 +109,7 @@ const Signin = () => {
           <div className="w-full h-auto flex justify-center ">
             <button className="px-36 rounded-lg py-[10px] text-white bg-[purple]" type="submit">Signin</button>
           </div>
-        </form>
+        </motion.form>
       </div>
     </div>
   )
