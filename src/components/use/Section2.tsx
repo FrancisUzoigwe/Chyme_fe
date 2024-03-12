@@ -15,12 +15,12 @@ const Section2 = () => {
             <div className="mt-32 w-full flex justify-center">
                 <div className="w-[90%] min-h-[400px] flex items-center max-lg:flex-col justify-between">
                     <div>
-                        <img className="w-[400px] rounded-xl h-[400px] object-cover" src={man} />
+                        <img className="w-[400px] rounded-xl h-[350px] object-cover" src={man} />
                     </div>
-                    <Fade triggerOnce={true} direction="up">
+                    <Fade triggerOnce={true} direction="up" duration={1500}>
                         <div className="w-[600px] max-lg:w-full ml-5 max-lg:ml-0">
-                            <div className="text-[#40196D] text-4xl font-black my-3 max-lg:text-center max-md:text-2xl" >It's your money, we just help you manage it.</div>
-                            <div className="w-full max-lg:text-center text-[#40196D]">
+                            <div className="text-[#40196D] text-4xl max-lg:text-3xl max-lg:text-left font-black my-3  max-md:text-2xl" >It's your money, we just help you manage it.</div>
+                            <div className="w-full max-lg:text-left leading-7">
                                 Save it, spend it, send it. It’s up to you. Whatever you choose to do with your money, we’ll make sure it’s done better and free of charge. We take responsibility for that.
                             </div>
 

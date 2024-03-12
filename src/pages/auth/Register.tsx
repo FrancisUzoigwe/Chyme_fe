@@ -97,15 +97,13 @@ const Register = () => {
           </div>
           <div className="w-[90%] flex items-center justify-between my-3 text-[13px] hover:cursor-pointer">
             <div>Forgot password?</div>
-            <div>Already have an account ?
-              <Link to="/signin">
+            <Link to="/signin">
+              <div>Already have an account ?
                 <span className="text-[red] ml-[2px]">Signin</span>
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
-          <div className="w-full h-auto flex justify-center ">
-            <button className="px-36 rounded-lg py-[10px] text-white bg-[purple]" type="submit">Signup</button>
-          </div>
+          <button className="px-36 rounded-lg py-[10px] text-white bg-[purple]" type="submit">Signup</button>
         </motion.form>
       </div>
     </div>

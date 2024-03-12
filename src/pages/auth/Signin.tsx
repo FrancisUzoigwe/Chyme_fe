@@ -63,7 +63,7 @@ const Signin = () => {
   }
   return (
     <div className="w-full h-screen flex justify-center items-center bg-purple-400"
-    // style={{ background: `url(${map})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "right" }}
+
     >
       {loading && <LoadingPage />}
       <div className="w-full flex justify-center items-center">
@@ -99,16 +99,14 @@ const Signin = () => {
           </div>
           <div className="w-[90%] flex items-center justify-between my-3 text-[13px] hover:cursor-pointer">
             <div>Forgot password?</div>
-            <div>Don't have an account ?
-              <Link to="/register">
+            <Link to="/register">
+              <div>Don't have an account ?
                 <span className="text-[red] ml-[2px]">Signup</span>
-              </Link>
-            </div>
+              </div>
+            </Link>
 
           </div>
-          <div className="w-full h-auto flex justify-center ">
-            <button className="px-36 rounded-lg py-[10px] text-white bg-[purple]" type="submit">Signin</button>
-          </div>
+          <button className="px-36 rounded-lg py-[10px] text-white bg-[purple]" type="submit">Signin</button>
         </motion.form>
       </div>
     </div>
