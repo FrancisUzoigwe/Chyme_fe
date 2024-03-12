@@ -19,7 +19,7 @@ const Section2 = () => {
                     </div>
                     <Fade triggerOnce={true} direction="up">
                         <div className="w-[600px] max-lg:w-full ml-5 max-lg:ml-0">
-                            <div className="text-[#40196D] text-4xl font-black my-3 max-lg:text-center" >It's your money, we just help you manage it.</div>
+                            <div className="text-[#40196D] text-4xl font-black my-3 max-lg:text-center max-md:text-2xl" >It's your money, we just help you manage it.</div>
                             <div className="w-full max-lg:text-center text-[#40196D]">
                                 Save it, spend it, send it. It’s up to you. Whatever you choose to do with your money, we’ll make sure it’s done better and free of charge. We take responsibility for that.
                             </div>
