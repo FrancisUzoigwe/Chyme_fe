@@ -7,6 +7,7 @@ import MainLayout from "../layout/MainLayout"
 import HomeScreen from "../pages/home/HomeScreen"
 import PrivateRoute from "./PrivateRoute"
 import EmailScreen from "../pages/auth/EmailScreen"
+import LoadingPage from "../pages/auth/LoadingPage"
 
 export const mainRoute = createBrowserRouter([
     {
@@ -18,8 +19,16 @@ export const mainRoute = createBrowserRouter([
         element: <Signin />
     },
     {
+        path: "/api/:token/verify-account",
+        element: <Signin />
+    },
+    {
         path: "/email",
         element: <EmailScreen />
+    },
+    {
+        path: "/load",
+        element: <LoadingPage />
     },
     {
         path: "/",

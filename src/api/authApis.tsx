@@ -23,3 +23,14 @@ export const signinApi = async (data: any) => {
         console.log(error)
     }
 }
+
+
+export const verifiedApi = async (userID: any) => {
+    try {
+        return await axios.patch(`${url}/${userID}/verify-account`).then((res) => {
+            return res.data?.data
+        })
+    } catch (error: any) {
+        console.log(error)
+    }
+}

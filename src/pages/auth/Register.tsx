@@ -7,7 +7,10 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { Link, useNavigate } from "react-router-dom"
 import { registerApi } from "../../api/authApis"
+import LoadingPage from "./LoadingPage"
 const Register = () => {
+
+
 
   const AuthSchema = yup.object({
     name: yup.string().required(),
@@ -19,13 +22,16 @@ const Register = () => {
     resolver: yupResolver(AuthSchema)
   })
 
-  const onHandleSubmit = handleSubmit(async (data: any) => {
-    const { name, email, password } = data;
+  const [loading, setLoading] = useState<boolean>(false)
 
+  const onHandleSubmit = handleSubmit(async (data: any) => {
+    setLoading(false)
+    const { name, email, password } = data;
     registerApi({ name, email, password }).then((res) => {
       console.log(res)
       navigate("/email")
     })
+    setLoading(true)
   })
 
   const navigate = useNavigate()
@@ -34,8 +40,10 @@ const Register = () => {
     setEye(!eye)
   }
   return (
-    <div className="w-full h-screen flex justify-center items-center bg-purple-400"
+    <div className="w-full h-screen flex justify-center items-center bg-purple-400 relative"
     >
+      {loading && <LoadingPage />}
+
       <div className="w-full flex justify-center items-center">
         <form onSubmit={onHandleSubmit} className="w-[400px] max-sm:w-[80%] h-[460px] flex flex-col items-center  bg-white rounded-lg">
           <div className="w-[90%] ">
@@ -83,7 +91,6 @@ const Register = () => {
                 <span className="text-[red] ml-[2px]">Signin</span>
               </Link>
             </div>
-
           </div>
           <div className="w-full h-auto flex justify-center ">
             <button className="px-36 rounded-lg py-[10px] text-white bg-[purple]" type="submit">Signup</button>

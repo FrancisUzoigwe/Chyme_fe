@@ -1,14 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaEye } from "react-icons/fa"
 import { FaEyeSlash } from "react-icons/fa6"
 import { SiMastercomfig } from "react-icons/si"
 import * as yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Link, useNavigate } from "react-router-dom"
-import { signinApi } from "../../api/authApis"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { signinApi, verifiedApi } from "../../api/authApis"
 import { useDispatch } from "react-redux"
 import { mainUser } from "../../global/globalState"
+import LoadingPage from "./LoadingPage"
 const Signin = () => {
 
   const AuthSchema = yup.object({
@@ -20,12 +21,16 @@ const Signin = () => {
     resolver: yupResolver(AuthSchema)
   })
 
+  const [loading, setLoading] = useState<boolean>(false)
+
   const onHandleSubmit = handleSubmit(async (data) => {
+    setLoading(false)
     const { email, password } = data
     signinApi({ email, password }).then((res) => {
       navigate("/auth")
       dispatch(mainUser(res))
     })
+    setLoading(true)
   })
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -33,10 +38,20 @@ const Signin = () => {
   const onEye = () => {
     setEye(!eye)
   }
+
+  const { token }: any = useParams()
+
+
+  useEffect(() => {
+    if (token) {
+      verifiedApi(token!)
+    }
+  }, [])
   return (
     <div className="w-full h-screen flex justify-center items-center bg-purple-400"
     // style={{ background: `url(${map})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "right" }}
     >
+      {loading && <LoadingPage />}
       <div className="w-full flex justify-center items-center">
         <form onSubmit={onHandleSubmit} className="w-[400px] max-sm:w-[80%] h-[400px] flex flex-col items-center  bg-white rounded-lg">
           <div className="w-[90%] ">
