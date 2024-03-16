@@ -17,7 +17,7 @@ const SiderBar = () => {
                     <IoClose className="text-3xl z-50   hover:cursor-pointer text-black opacity-100 " />
                 </div>
             </div>
-            <div className="flex flex-col items-center my-20">
+            <div className="flex flex-col  my-20 absolute right-7 text-right">
                 <Link to="home" duration={1000} smooth={true}>
                     <div className="my-3 hover:cursor-pointer" onClick={() => {
                         dispatch(changeToggled())

@@ -17,7 +17,7 @@ const Landing = () => {
             <div className="w-full min-h-[100vh]  flex justify-center" id="home">
                 <div className="w-[90%] h-auto flex justify-between items-center max-lg:flex-col">
                     <div className="max-w-[450px] mt-20">
-                        <div className="text-[#40196D] font-black leading-[55px] text-5xl text-[Big] max-lg:w-full max-lg:text-center max-md:text-4xl " >The money app for
+                        <div className="text-[#40196D] font-black leading-[55px] text-5xl  max-lg:w-full max-lg:text-center max-md:text-4xl uppercase" >The money app for
                             Ajegunle
                         </div>
                         <div className=" my-6 font-black max-lg:text-center">Make free transfers, collet payments, enjoy cashless payment options and earn interest on your savings with Chyme.</div>
