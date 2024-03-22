@@ -4,6 +4,7 @@ import { BsSend } from "react-icons/bs"
 import { IoPieChartOutline } from "react-icons/io5"
 import { CiCreditCard2, CiReceipt } from "react-icons/ci"
 import { HiOutlineMenu } from "react-icons/hi"
+import image from "../../../public/vite.svg"
 const MainHeader = () => {
   return (
 
@@ -20,7 +21,7 @@ const MainHeader = () => {
 
           </div>
           <div className="flex  items-center justify-center">
-            <img alt="Img" className="w-[35px] h-[35px] rounded-full mr-1 border border-[#40196D]" />
+            <img alt="Img" src={image} className="w-[35px] h-[35px] rounded-full mr-1 border " />
             <div className="max-md:text-[14px]">Account</div>
             <div className="hidden max-md:block ml-3 text-2xl hover:cursor-pointer"><HiOutlineMenu /></div>
           </div>
