@@ -4,10 +4,10 @@ import Landing from "../pages/auth/Landing"
 import Register from "../pages/auth/Register"
 import Signin from "../pages/auth/Signin"
 import MainLayout from "../layout/MainLayout"
-import HomeScreen from "../pages/home/HomeScreen"
 import PrivateRoute from "./PrivateRoute"
 import EmailScreen from "../pages/auth/EmailScreen"
 import LoadingPage from "../pages/auth/LoadingPage"
+import DashBoard from "../pages/home/DashBoard"
 
 export const mainRoute = createBrowserRouter([
     {
@@ -46,7 +46,7 @@ export const mainRoute = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <HomeScreen />
+                element: <DashBoard />
             }
         ]
     }

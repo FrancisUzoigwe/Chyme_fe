@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { logOut } from "../../global/globalState"
 
-const HomeScreen = () => {
+const DashBoard = () => {
   const dispatch = useDispatch()
   return (
     <div className="w-full h-full ">
@@ -12,4 +12,4 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default DashBoard
