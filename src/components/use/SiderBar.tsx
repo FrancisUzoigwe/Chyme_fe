@@ -1,39 +1,38 @@
 import { useDispatch, useSelector } from "react-redux"
 import { changeToggled } from "../../global/globalState"
 import { IoClose } from "react-icons/io5"
-import { useNavigate } from "react-router-dom"
-import { Link } from "react-scroll"
+import { motion } from "framer-motion"
 
 const SiderBar = () => {
     const dispatch = useDispatch()
     const toggle = useSelector((state: any) => state.toggle)
-    const navigate = useNavigate()
 
+
+
+    const motionVariant = {
+        open: {
+            width: "300px",
+            opacity: 1,
+            transition: {
+                duration: 0.2
+            }
+        },
+        close: {
+            width: "0px",
+            opacity: 0,
+            transition: {
+                duration: 0.2
+            }
+        }
+    }
     return (
-        <div className={`${toggle ? "fixed z-[9999] top-0  left-0 w-full h-full backdrop-blur-sm bg-purple-900 opacity-90 text-white lg:hidden" : "hidden"} flex flex-col items-center`}>
-            <div className="absolute right-6 top-4" onClick={() => {
-                dispatch(changeToggled())
-            }}><div className="opacity-100">
-                    <IoClose className="text-3xl z-50   hover:cursor-pointer text-black opacity-100 " />
-                </div>
+        <motion.div variants={motionVariant} initial={false} animate={toggle ? "open" : "close"} className={`absolute ${toggle ? "w-[300px]" : "w-0"} top-0 h-screen max-md:flex hidden`}>
+            <div className="fixed w-[300px] bg-purple-700 h-full">
+                <div className="top-4 right-4 absolute"><IoClose className="text-2xl hover:cursor-pointer" onClick={() => {
+                    dispatch(changeToggled())
+                }} /></div>
             </div>
-            <div className="flex flex-col  my-20 absolute right-7 text-right">
-                <Link to="home" duration={1000} smooth={true}>
-                    <div className="my-3 hover:cursor-pointer" onClick={() => {
-                        dispatch(changeToggled())
-                    }}>Chyme</div>
-                </Link>
-                <div className="my-3 hover:cursor-pointer" onClick={() => {
-                    navigate("/signin")
-                }}>Signin</div>
-
-                <div className="my-3 hover:cursor-pointer" onClick={() => {
-                    navigate("/register")
-                }}>Register</div>
-                <div className="my-3 ">Send Cash</div>
-                <div className="my-3 ">Recieve Cash</div>
-            </div>
-        </div>
+        </motion.div>
     )
 }
 
