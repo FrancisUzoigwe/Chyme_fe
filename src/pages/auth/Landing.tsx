@@ -1,13 +1,9 @@
 import Change from "../../components/common/Change"
-import Section2 from "../../components/use/Section2"
 import money from "../../assets/money.png"
 import money1 from "../../assets/money1.png"
 import hand from "../../assets/hand.png"
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
-import Section3 from "../../components/use/Section3"
-import Section4 from "../../components/use/Section4"
-
 const Landing = () => {
     const images: any = [
         money, money1, hand
@@ -36,9 +32,7 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-            <Section2 />
-            <Section3 />
-            <Section4 />
+
         </>
     )
 }
