@@ -8,6 +8,11 @@ import PrivateRoute from "./PrivateRoute"
 import EmailScreen from "../pages/auth/EmailScreen"
 import LoadingPage from "../pages/auth/LoadingPage"
 import DashBoard from "../pages/home/DashBoard"
+import Send from "../pages/home/Send"
+import Pay from "../pages/home/Pay"
+import Account from "../pages/home/Account"
+import Budget from "../pages/home/Budget"
+import Card from "../pages/home/Card"
 
 export const mainRoute = createBrowserRouter([
     {
@@ -47,7 +52,27 @@ export const mainRoute = createBrowserRouter([
             {
                 index: true,
                 element: <DashBoard />
-            }
+            },
+            {
+                path: "/auth/send",
+                element: <Send/>
+            },
+            {
+                path: "/auth/pay",
+                element: <Pay/>
+            },
+            {
+                path: "/auth/account",
+                element: <Account/>
+            },
+            {
+                path: "/auth/budget",
+                element: <Budget/>
+            },
+            {
+                path: "/auth/card",
+                element: <Card/>
+            },
         ]
     }
 ])
