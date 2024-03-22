@@ -6,8 +6,12 @@ import { CiCreditCard2, CiReceipt } from "react-icons/ci"
 import { HiOutlineMenu } from "react-icons/hi"
 import image from "../../../public/vite.svg"
 import { Link } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { toggled } from "../../global/globalState"
 const MainHeader = () => {
+  const dispatch = useDispatch()
   return (
+
 
     <header className="w-full h-[50px] flex items-center justify-center ">
       <header className="w-full h-[50px] flex items-center justify-center fixed bg-white shadow-md">
@@ -21,11 +25,17 @@ const MainHeader = () => {
             <Link to="/auth/card">  <div className="flex items-center mx-4"><CiCreditCard2 className="mx-1 text-[20px]" />Card </div></Link>
 
           </div>
-          <Link to="/auth/account">  <div className="flex  items-center justify-center">
-            <img alt="Img" src={image} className="w-[35px] h-[35px] rounded-full mr-1 border " />
-            <div className="max-md:text-[14px]">Account</div>
-            <div className="hidden max-md:block ml-3 text-2xl hover:cursor-pointer"><HiOutlineMenu /></div>
-          </div></Link>
+          <div className="flex items-center">
+            <Link to="/auth/account">
+              <div className="flex  items-center justify-center">
+                <img alt="Img" src={image} className="w-[35px] h-[35px] rounded-full mr-1 border " />
+                <div className="max-md:text-[14px]">Account</div>
+
+              </div></Link>
+            <div className="hidden max-md:block ml-3 text-2xl hover:cursor-pointer"><HiOutlineMenu onClick={() => {
+              dispatch(toggled())
+            }} /></div>
+          </div>
         </header>
       </header>
     </header>

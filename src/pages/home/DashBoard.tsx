@@ -6,6 +6,7 @@ import { useState } from "react"
 import { TbTransfer } from "react-icons/tb"
 import { PiDotsNineLight, PiDotsSixVerticalLight, PiDotsSixThin } from "react-icons/pi"
 import image from "../../../public/vite.svg"
+import { FaAngleRight } from "react-icons/fa"
 const DashBoard = () => {
 
   const [state, setState] = useState<boolean>(false)
@@ -42,7 +43,7 @@ const DashBoard = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-[60px] flex items-center justify-center">
+        {/* <div className="w-full h-[60px] flex items-center justify-center">
           <div className="w-[50%] max-lg:w-[80%] max-md:w-[95%] h-full border flex items-center justify-between border-gray-300 rounded-md shadow-md ">
             <div className="w-full  flex items-center justify-between">
               <div className="flex items-center ">
@@ -56,6 +57,21 @@ const DashBoard = () => {
             </div>
           </div>
         </div>
+        <div className="my-3" />
+        <div className="w-full h-[60px] flex items-center justify-center">
+          <div className="w-[50%] max-lg:w-[80%] max-md:w-[95%] h-full border flex items-center justify-between border-gray-300 rounded-md shadow-md ">
+            <div className="w-full  flex items-center justify-between">
+              <div className="flex items-center">
+                <img src={image} alt="" className="w-[50px] h-[50px] border-gray-400 mx-2 border rounded-full" />
+                <div>
+                  <div className="font-black text-[13px]">MTN NG Data </div>
+                  <div className="text-[11px] font-black text-gray-500">Time</div>
+                </div>
+                <div className=""><FaAngleRight/></div>
+              </div>
+            </div>
+          </div>
+        </div> */}
       </div>
     </>
   )
