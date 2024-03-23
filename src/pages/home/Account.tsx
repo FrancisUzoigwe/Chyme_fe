@@ -7,6 +7,7 @@ import Options from "../../components/use/Options";
 import { FaAddressCard } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux";
 import { changeToggled, logOut } from "../../global/globalState";
+import { motion } from "framer-motion"
 const Account = () => {
 
   const [copySuccess, setCopySuccess] = useState(false);
@@ -18,9 +19,23 @@ const Account = () => {
 
   const toggle = useSelector((state: any) => state.toggle)
   const dispatch = useDispatch()
+
+  const motionVariant = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7
+      }
+    },
+    close: {
+      opacity: 0,
+      y: "100px"
+    }
+  }
   return (
     <>
-      <div className={`w-full min-h-[100vh] flex flex-col items-center  ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"}`} onClick={() => {
+      <motion.div variants={motionVariant} initial="close" animate="open" className={`w-full min-h-[100vh] flex flex-col items-center  ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"}`} onClick={() => {
         dispatch(changeToggled())
       }}>
         <div className="my-1 text-[#40196D] font-bold text-[20px]">Account</div>
@@ -36,7 +51,7 @@ const Account = () => {
                       <div>Kossyrisochukwu</div>
                       <div>Uzoigwe</div>
                     </div>
-                    <div>
+                    <div className="my-2">
                       <div className="leading-[1.1] font-extralight">
                         <div className="text-[13px] text-[#40196D]">Copy username</div>
                         <CopyToClipboard text="@francisuzoigwe" onCopy={handleCopy}>
@@ -77,7 +92,7 @@ const Account = () => {
             dispatch(logOut())
           }}>Sign Out</div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
