@@ -31,6 +31,7 @@ const SiderBar = () => {
         }
     }
     return (
+        
         <motion.div variants={motionVariant} initial={false} animate={toggle ? "open" : "close"} className={`absolute ${toggle ? "w-[300px]" : "w-0"} top-0 h-screen max-md:flex hidden z-[300]`}>
             <div className="fixed w-[300px] bg-white h-full">
                 <div className="top-4 right-4 absolute"><IoClose className="text-2xl hover:cursor-pointer" onClick={() => {
