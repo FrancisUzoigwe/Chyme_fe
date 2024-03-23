@@ -41,7 +41,7 @@ const SiderBar = () => {
                     <img src={image} alt="Image" className="w-[40px] h-[40px] rounded-full border mr-2 " />
                     <div className="text-[14px]">Account</div>
                 </div>
-                <div className="mt-5 ml-4 left-4 top-16">
+                <div className="mt-5 ml-4 left-4 top-16 text-[#40196D]">
                     <Link to="/auth">         <div className="my-7 flex items-center " ><FaHome className="mr-2 text-2xl" />Home</div></Link>
                     <Link to="/auth/send"> <div className="my-7 flex items-center " ><BsSend className="mr-2 text-2xl" />Send</div></Link>
                     <Link to="/auth/pay"> <div className="my-7 flex items-center " ><CiReceipt className="mr-2 text-2xl" />Pay</div></Link>
@@ -50,6 +50,7 @@ const SiderBar = () => {
                 </div>
                 <div className="flex items-center absolute bottom-7 left-4 text-[red]">
                     <div className="relative flex items-center hover:cursor-pointer" onClick={() => {
+                        dispatch(changeToggled())
                         dispatch(logOut())
                     }}><CiLogout className="text-2xl mr-2" />LogOut</div>
                 </div>

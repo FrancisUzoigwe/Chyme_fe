@@ -13,6 +13,12 @@ import Pay from "../pages/home/Pay"
 import Account from "../pages/home/Account"
 import Budget from "../pages/home/Budget"
 import Card from "../pages/home/Card"
+import ViewProfile from "../pages/home/settings/ViewProfile"
+import Security from "../pages/home/settings/Security"
+import Statement from "../pages/home/settings/Statement"
+import Cards from "../pages/home/settings/Cards"
+import Legal from "../pages/home/settings/Legal"
+import FAQs from "../pages/home/settings/FAQs"
 
 export const mainRoute = createBrowserRouter([
     {
@@ -55,23 +61,51 @@ export const mainRoute = createBrowserRouter([
             },
             {
                 path: "/auth/send",
-                element: <Send/>
+                element: <Send />
             },
             {
                 path: "/auth/pay",
-                element: <Pay/>
+                element: <Pay />
             },
             {
                 path: "/auth/account",
-                element: <Account/>
+                element: <Account />
             },
             {
                 path: "/auth/budget",
-                element: <Budget/>
+                element: <Budget />
             },
             {
                 path: "/auth/card",
-                element: <Card/>
+                element: <Card />
+            },
+            {
+                path: "/auth/view-profile",
+                element: <ViewProfile />
+            },
+            {
+                path: "/auth/security",
+                element: <Security />
+            },
+            {
+                path: "/auth/statement",
+                element: <Statement />
+            },
+            {
+                path: "/auth/cards",
+                element: <Card />
+            },
+            {
+                path: "/auth/card",
+                element: <Cards />
+            },
+            {
+                path: "/auth/legal",
+                element: <Legal />
+            },
+            {
+                path: "/auth/FAQs",
+                element: <FAQs />
             },
         ]
     }
