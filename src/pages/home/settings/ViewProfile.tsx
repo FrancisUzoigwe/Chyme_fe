@@ -1,8 +1,5 @@
-
 const ViewProfile = () => {
-  return (
-    <div>ViewProfile</div>
-  )
-}
+  return <div className="w-full flex justify-center"></div>;
+};
 
-export default ViewProfile
+export default ViewProfile;
