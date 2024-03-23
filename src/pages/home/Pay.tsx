@@ -57,7 +57,7 @@ const Pay = () => {
             <input type="text" placeholder="Search for bills" className="placeholder:text-[13px] w-full h-[50px] outline-none pl-10 " />
           </div>
           <div className="w-[90%] my-3">Essentials</div>
-          <div className="w-[90%] grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-3">
+          <div className="w-[90%] grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-4 gap-3">
             <Options text="Airtime" icon={<BiSolidCreditCardAlt />} />
             <Options text="Internet" icon={<FaWifi />} />
             <Options text="TV" icon={<PiTelevisionSimpleFill />} />
@@ -66,7 +66,7 @@ const Pay = () => {
           </div>
           <div className="my-3" />
           <div className="w-[90%] my-3">Cardless Payments</div>
-          <div className="w-[90%] grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-3">
+          <div className="w-[90%] grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-4 gap-3">
             <Options text="Pay With Bank" icon={<CiBank />} />
             <Options text="Pay With USSD" icon={<FaHashtag />} />
             <Options text="POS Terminal" icon={<MdOutlinePointOfSale />} />
@@ -75,7 +75,7 @@ const Pay = () => {
           </div>
           <div className="my-3" />
           <div className="w-[90%] my-3">Lifestyle</div>
-          <div className="w-[90%] grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-3">
+          <div className="w-[90%] grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-4 gap-3 ">
             <Options text="Betting" icon={<ImSpades />} />
             <Options text="Gift Cards" icon={<FaHashtag />} />
             <Options text="Transport" icon={<MdOutlineEmojiTransportation />} />
