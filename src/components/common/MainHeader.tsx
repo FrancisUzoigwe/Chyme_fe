@@ -15,7 +15,7 @@ const MainHeader = () => {
 
 
     <header className="w-full h-[50px] flex items-center justify-center ">
-      <header className={`w-full h-[50px] flex items-center  justify-center fixed ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"} shadow-md`}>
+      <header className={`w-full z-[300] h-[50px] flex items-center  justify-center fixed ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"} shadow-md`}>
         <header className="w-[90%] flex justify-between items-center">
           <div className="text-[#40196D] font-black flex items-center" > <div className="mr-2"><SiMastercomfig /></div>Chyme</div>
           <div className="flex items-center justify-center max-md:hidden text-[#40196D]">
