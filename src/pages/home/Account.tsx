@@ -3,10 +3,15 @@ import image from "../../../public/vite.svg"
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { useState } from "react";
 import { GoSponsorTiers } from "react-icons/go"
-import Options from "../../components/use/Options";
-import { FaAddressCard } from "react-icons/fa"
+import OptionII from "../../components/use/OptionII";
+import { FaAddressCard, FaQuestion } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux";
 import { changeToggled, logOut } from "../../global/globalState";
+import { motion } from "framer-motion"
+import { AiOutlineSecurityScan } from "react-icons/ai"
+import { PiCardsFill } from "react-icons/pi"
+import { TbMessageReport } from "react-icons/tb";
+import { SiYoutubestudio } from "react-icons/si";
 const Account = () => {
 
   const [copySuccess, setCopySuccess] = useState(false);
@@ -18,9 +23,23 @@ const Account = () => {
 
   const toggle = useSelector((state: any) => state.toggle)
   const dispatch = useDispatch()
+
+  const motionVariant = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7
+      }
+    },
+    close: {
+      opacity: 0,
+      y: "100px"
+    }
+  }
   return (
     <>
-      <div className={`w-full min-h-[100vh] flex flex-col items-center  ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"}`} onClick={() => {
+      <motion.div variants={motionVariant} initial="close" animate="open" className={`w-full min-h-[100vh] flex flex-col items-center  ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"}`} onClick={() => {
         dispatch(changeToggled())
       }}>
         <div className="my-1 text-[#40196D] font-bold text-[20px]">Account</div>
@@ -36,7 +55,7 @@ const Account = () => {
                       <div>Kossyrisochukwu</div>
                       <div>Uzoigwe</div>
                     </div>
-                    <div>
+                    <div className="my-2">
                       <div className="leading-[1.1] font-extralight">
                         <div className="text-[13px] text-[#40196D]">Copy username</div>
                         <CopyToClipboard text="@francisuzoigwe" onCopy={handleCopy}>
@@ -65,19 +84,19 @@ const Account = () => {
           <div className="my-2" />
           <div className="w-[95%] grid grid-cols-2 max-md:grid-cols-1 gap-5 max-md:gap-3">
 
-            <Options text="View Profile" icon={<FaAddressCard />} link="/auth/view-profile" />
-            <Options text="Security" link="/auth/security" />
-            <Options text="Statement & Reports" link="/auth/statement" />
-            <Options text="Legal" link="/auth/legal" />
-            <Options text="Saved Cards" link="/auth/cards" />
-            <Options text="FAQs" link="/auth/FAQs" />
+            <OptionII text="View Profile" icon={<FaAddressCard />} link="/auth/view-profile" />
+            <OptionII text="Security" link="/auth/security" icon={<AiOutlineSecurityScan />} />
+            <OptionII text="Statement & Reports" link="/auth/statement" icon={<TbMessageReport/>}/>
+            <OptionII text="Legal" link="/auth/legal" icon={<SiYoutubestudio/>}/>
+            <OptionII text="Saved Cards" link="/auth/cards" icon={<PiCardsFill/>}/>
+            <OptionII text="FAQs" link="/auth/FAQs"  icon={<FaQuestion/>}/>
           </div>
           <div className="my-4" />
           <div className="text-[red] hover:cursor-pointer " onClick={() => {
             dispatch(logOut())
           }}>Sign Out</div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
