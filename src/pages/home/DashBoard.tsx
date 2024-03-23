@@ -10,6 +10,7 @@ import Transfers from "../../components/use/Transfers"
 import { useDispatch, useSelector } from "react-redux"
 import { changeToggled } from "../../global/globalState"
 import "../../components/use/Transfer.css"
+import { motion } from "framer-motion"
 const DashBoard = () => {
 
   const [state, setState] = useState<boolean>(false)
@@ -25,9 +26,23 @@ const DashBoard = () => {
     setBeneficiary(!beneficiary)
   }
   const toggle = useSelector((state: any) => state.toggle)
+
+  const motionVariant = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7
+      }
+    },
+    close: {
+      opacity: 0,
+      y: "100px"
+    }
+  }
   return (
     <>
-      <div className={`w-full min-h-[40vh] flex items-center flex-col ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"}`} onClick={() => {
+      <motion.div variants={motionVariant} initial="close" animate="open" className={`w-full min-h-[40vh] flex items-center flex-col ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"}`} onClick={() => {
         dispatch(changeToggled())
       }}>
         <div className="w-[50%] max-lg:w-[80%] max-md:w-[95%] flex flex-col items-center h-full my-5">
@@ -57,7 +72,7 @@ const DashBoard = () => {
             </div>
           </div>
           <div className="w-full h-[60px] flex items-center justify-center mt-10">
-           {!beneficiary?  <div className="w-full max-lg:w-full max-md:w-[95%] h-full border flex items-center justify-between border-gray-300 rounded-md shadow-md ">
+            {!beneficiary ? <div className="w-full max-lg:w-full max-md:w-[95%] h-full border flex items-center justify-between border-gray-300 rounded-md shadow-md ">
               <div className="w-full h-[60px] flex items-center justify-between hover:cursor-pointer">
                 <div className="flex items-center ">
                   <img alt="Img" src={image} className="w-[45px] object-cover h-[45px] rounded-full border border-gray-500 mx-2" />
@@ -85,7 +100,7 @@ const DashBoard = () => {
           </div>
         </div>
 
-      </div>
+      </motion.div>
     </>
   )
 }

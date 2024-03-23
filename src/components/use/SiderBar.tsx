@@ -42,11 +42,21 @@ const SiderBar = () => {
                     <div className="text-[14px]">Account</div>
                 </div>
                 <div className="mt-5 ml-4 left-4 top-16 text-[#40196D]">
-                    <Link to="/auth">         <div className="my-7 flex items-center " ><FaHome className="mr-2 text-2xl" />Home</div></Link>
-                    <Link to="/auth/send"> <div className="my-7 flex items-center " ><BsSend className="mr-2 text-2xl" />Send</div></Link>
-                    <Link to="/auth/pay"> <div className="my-7 flex items-center " ><CiReceipt className="mr-2 text-2xl" />Pay</div></Link>
-                    <Link to="/auth/budget">  <div className="my-7 flex items-center " ><IoPieChartOutline className="mr-2 text-2xl" />Budget</div></Link>
-                    <Link to="/auth/card">  <div className="my-7 flex items-center " ><CiCreditCard2 className="mr-2 text-2xl" />Card</div></Link>
+                    <Link to="/auth">         <div className="my-7 flex items-center " onClick={() => {
+                        dispatch(changeToggled())
+                    }}><FaHome className="mr-2 text-2xl" />Home</div></Link>
+                    <Link to="/auth/send"> <div className="my-7 flex items-center " onClick={() => {
+                        dispatch(changeToggled())
+                    }} ><BsSend className="mr-2 text-2xl" />Send</div></Link>
+                    <Link to="/auth/pay"> <div className="my-7 flex items-center " onClick={() => {
+                        dispatch(changeToggled())
+                    }} ><CiReceipt className="mr-2 text-2xl" />Pay</div></Link>
+                    <Link to="/auth/budget">  <div className="my-7 flex items-center " onClick={() => {
+                        dispatch(changeToggled())
+                    }} ><IoPieChartOutline className="mr-2 text-2xl" />Budget</div></Link>
+                    <Link to="/auth/card">  <div className="my-7 flex items-center " onClick={() => {
+                        dispatch(changeToggled())
+                    }} ><CiCreditCard2 className="mr-2 text-2xl" />Card</div></Link>
                 </div>
                 <div className="flex items-center absolute bottom-7 left-4 text-[red]">
                     <div className="relative flex items-center hover:cursor-pointer" onClick={() => {
