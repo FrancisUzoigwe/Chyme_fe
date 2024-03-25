@@ -2,6 +2,8 @@ import { FaChevronRight, FaInbox } from "react-icons/fa6";
 import { BsFillSendFill } from "react-icons/bs"
 import Logo from '../../assets/kuda.png'
 import { motion } from "framer-motion"
+import {Link} from 'react-router-dom'
+
 
 const Send = () => {
 
@@ -48,11 +50,13 @@ const Send = () => {
         </div>
         <div className="w-[85%] h-[25%]  bg-[#F8F8F8] flex rounded-[9px]  ">
           <div className="w-[80%] h-[100%] flex justify-start items-center gap-[5%] max-sm:w-[80%] max-sm:gap-[10px]">
-            <div className="w-[10%] h-[90%] flex justify-center items-center bg-[#F9F9F9]">
+            <div className="w-[20%] h-[90%] flex justify-center items-center bg-[#F9F9F9]">
               <BsFillSendFill className=" text-green-400" />
             </div>
-            <div className=" w-[50%] h-[100%] flex-col flex justify-center items-start ">
-              <h3 className=" font-extrabold text-purple-900 text-lg max-sm:text-xs">Send to Bank Account</h3>
+            <div className=" w-[50%] h-[100%] flex-col flex justify-center items-start">
+              <Link to='/auth/sendbank'>
+                <h3 className=" font-extrabold text-purple-900 text-lg max-sm:text-xs">Send to Bank Account</h3>
+              </Link>
               <span className=" font-medium text-slate-400 text-xs">Send to local bank account.</span>
             </div>
           </div>
