@@ -6,6 +6,11 @@ import { changeToggled } from "../../../global/globalState";
 import EmailEdit from "./edit/EmailEdit";
 import NOKEdit from "./edit/NOKEdit";
 import StatusEdit from "./edit/StatusEdit";
+import UserNameEdit from "./edit/UserNameEdit";
+import HouseAddressEdit from "./edit/HouseAddressEdit";
+import PhoneEdit from "./edit/PhoneEdit";
+import AccountName from "./edit/AccountName";
+import Identification from "./edit/Identification";
 const EditProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,7 +45,7 @@ const EditProfile = () => {
       }}
     >
       <div className="w-full flex justify-center text-purple-900">
-        <div className="lg:w-[30%] ">
+        <div className="xl:w-[40%] md:w-[60%] w-[90%] ">
           <div className="text-[25px] flex justify-center gap-4 items-center text-center font-bold mt-5 capitalize">
             {type?.split("-").length > 1 ? (
               <>
@@ -66,6 +71,16 @@ const EditProfile = () => {
               <NOKEdit />
             ) : type.includes("status") ? (
               <StatusEdit />
+            ) : type.includes("user") ? (
+              <UserNameEdit />
+            ) : type.includes("house") ? (
+              <HouseAddressEdit />
+            ) : type.includes("phone") ? (
+              <PhoneEdit />
+            ) : type.includes("account") ? (
+              <AccountName />
+            ) : type.includes("identification") ? (
+              <Identification />
             ) : (
               ""
             )}

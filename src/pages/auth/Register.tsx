@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { registerApi } from "../../api/authApis"
 import LoadingPage from "./LoadingPage"
 import { motion } from "framer-motion"
+
 const Register = () => {
   const AuthSchema = yup.object({
     name: yup.string().required(),

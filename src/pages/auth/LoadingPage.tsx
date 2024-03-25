@@ -1,4 +1,5 @@
 import { PacmanLoader } from "react-spinners"
+
 const LoadingPage = () => {
     return (
         <div className="w-full h-screen flex items-center justify-center backdrop-blur-sm absolute z-30">
