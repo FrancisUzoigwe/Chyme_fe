@@ -39,7 +39,7 @@ const Footer = () => {
               <div className="mr-2">
                 <SiMastercomfig />
               </div>
-              Chyme
+              AJMoney
             </div>
           </a>
           <div className="flex items-center  gap-[8px]">
@@ -137,7 +137,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-[13px] font-[400] text-[white]">
-        Copyright Chyme {currentDate}. All right reserved
+        Copyright AJMoney {currentDate}. All right reserved
       </div>
     </div>
   );

@@ -1,62 +1,5 @@
-<<<<<<< HEAD
-import { createBrowserRouter } from "react-router-dom"
-import AuthLayout from "../layout/AuthLayout"
-// import Landing from "../pages/auth/Landing"
-import Register from "../pages/auth/Register"
-import Signin from "../pages/auth/Signin"
-import MainLayout from "../layout/MainLayout"
-import PrivateRoute from "./PrivateRoute"
-import EmailScreen from "../pages/auth/EmailScreen"
-import LoadingPage from "../pages/auth/LoadingPage"
-import DashBoard from "../pages/home/DashBoard"
-import HomeScreen from "../pages/LandingPages/HomeScreen/HomeScreen"
-
-export const mainRoute = createBrowserRouter([
-    {
-        path: "/register",
-        element: <Register />
-    },
-    {
-        path: "/signin",
-        element: <Signin />
-    },
-    {
-        path: "/api/:token/verify-account",
-        element: <Signin />
-    },
-    {
-        path: "/email",
-        element: <EmailScreen />
-    },
-    {
-        path: "/load",
-        element: <LoadingPage />
-    },
-    {
-        path: "/",
-        element: <AuthLayout />,
-        children: [
-            {
-                index: true,
-                element: <HomeScreen/>
-            }
-        ]
-    },
-    {
-        path: "/auth",
-        element: <PrivateRoute><MainLayout /></PrivateRoute>,
-        children: [
-            {
-                index: true,
-                element: <DashBoard />
-            }
-        ]
-    }
-])
-=======
 import { createBrowserRouter } from "react-router-dom";
 import AuthLayout from "../layout/AuthLayout";
-import Landing from "../pages/auth/Landing";
 import Register from "../pages/auth/Register";
 import Signin from "../pages/auth/Signin";
 import MainLayout from "../layout/MainLayout";
@@ -77,6 +20,7 @@ import Legal from "../pages/home/settings/Legal";
 import FAQs from "../pages/home/settings/FAQs";
 import EditProfile from "../pages/home/settings/EditProfile";
 import SendBank from "../pages/home/SendBank";
+import HomeScreen from "../pages/LandingPages/HomeScreen/HomeScreen";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -103,12 +47,12 @@ export const mainRoute = createBrowserRouter([
     path: "/",
     element: <AuthLayout />,
     children: [
-      {
-        index: true,
-        element: <Landing />,
-      },
-    ],
-  },
+        {
+            index: true,
+            element: <HomeScreen/>
+        }
+    ]
+},
   {
     path: "/auth",
     element: (
@@ -180,4 +124,3 @@ export const mainRoute = createBrowserRouter([
     ],
   },
 ]);
->>>>>>> cc3a059bf0e3c0a2eebe03b4129a04c3296311fb
