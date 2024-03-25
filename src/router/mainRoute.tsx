@@ -23,6 +23,9 @@ import SendBank from "../pages/home/SendBank";
 import HomeScreen from "../pages/LandingPages/HomeScreen/HomeScreen";
 import Sendtousername from "../pages/home/Sendtousername";
 
+
+
+
 export const mainRoute = createBrowserRouter([
   {
     path: "/register",
