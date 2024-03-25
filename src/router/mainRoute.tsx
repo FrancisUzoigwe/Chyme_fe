@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import AuthLayout from "../layout/AuthLayout"
-import Landing from "../pages/auth/Landing"
+// import Landing from "../pages/auth/Landing"
 import Register from "../pages/auth/Register"
 import Signin from "../pages/auth/Signin"
 import MainLayout from "../layout/MainLayout"
@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute"
 import EmailScreen from "../pages/auth/EmailScreen"
 import LoadingPage from "../pages/auth/LoadingPage"
 import DashBoard from "../pages/home/DashBoard"
+import HomeScreen from "../pages/LandingPages/HomeScreen/HomeScreen"
 
 export const mainRoute = createBrowserRouter([
     {
@@ -36,7 +37,7 @@ export const mainRoute = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Landing />
+                element: <HomeScreen/>
             }
         ]
     },
