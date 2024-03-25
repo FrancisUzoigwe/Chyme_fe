@@ -4,8 +4,13 @@ import { Provider } from "react-redux"
 import { store } from "./global/store"
 import { PersistGate } from "redux-persist/integration/react"
 import { persistStore } from "redux-persist"
+import { useEffect } from "react"
+import { spinUp } from "./api/authApis"
 
 const App = () => {
+  useEffect(() => {
+    spinUp()
+  }, [])
   const persist = persistStore(store)
   return (
     <div>

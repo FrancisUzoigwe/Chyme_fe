@@ -20,6 +20,7 @@ import Cards from "../pages/home/settings/Cards";
 import Legal from "../pages/home/settings/Legal";
 import FAQs from "../pages/home/settings/FAQs";
 import EditProfile from "../pages/home/settings/EditProfile";
+import SendBank from "../pages/home/SendBank";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -116,6 +117,10 @@ export const mainRoute = createBrowserRouter([
         path: "/auth/FAQs",
         element: <FAQs />,
       },
+      {
+        path: '/auth/sendbank',
+        element: <SendBank/>
+      }
     ],
   },
 ]);
