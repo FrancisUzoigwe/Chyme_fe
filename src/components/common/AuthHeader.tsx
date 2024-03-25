@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import { toggled } from "../../global/globalState"
 import { Link } from "react-router-dom"
 import { useState } from "react"
+
 const AuthHeader = () => {
     const dispatch = useDispatch()
 
