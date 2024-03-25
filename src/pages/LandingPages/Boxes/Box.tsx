@@ -4,6 +4,7 @@ import { PiPiggyBankFill } from "react-icons/pi";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { MdPayments } from "react-icons/md";
 import { GiBorderedShield } from "react-icons/gi";
+import { Zoom } from "react-swift-reveal";
 
 interface BoxData {
   id: number;
@@ -42,9 +43,11 @@ const boxData: BoxData[] = [
 
 const Box = () => {
   return (
-    <div className="mt-[4rem] mb-[2rem] py-[20px]  flex items-center flex-wrap justify-center gap-[2rem]">
+    <div className=" mb-[5rem] py-[20px]  flex items-center flex-wrap justify-center gap-[2rem]">
       {boxData.map((box) => (
-        <Boxes key={box.id} title={box.title} icon={box.icon} />
+        <Zoom>
+          <Boxes key={box.id} title={box.title} icon={box.icon} />
+        </Zoom>
       ))}
     </div>
   );

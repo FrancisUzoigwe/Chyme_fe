@@ -9,8 +9,8 @@ const HomeScreen = () => {
   return (
     <div>
       <Landing />
-      <Stats />
       <Box />
+      <Stats />
       <General />
       <Join />
       {/* <Slider /> */}
