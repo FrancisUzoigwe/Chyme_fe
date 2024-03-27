@@ -6,12 +6,12 @@ import image from "../../../public/vite.svg"
 import { FaHome } from "react-icons/fa"
 import { CiCreditCard2, CiLogout, CiReceipt } from "react-icons/ci"
 import { BsSend } from "react-icons/bs"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const SiderBar = () => {
     const dispatch = useDispatch()
     const toggle = useSelector((state: any) => state.toggle)
-
+    const navigate = useNavigate()
 
 
     const motionVariant = {
@@ -31,14 +31,16 @@ const SiderBar = () => {
         }
     }
     return (
-        
+
         <motion.div variants={motionVariant} initial={false} animate={toggle ? "open" : "close"} className={`absolute ${toggle ? "w-[300px]" : "w-0"} top-0 h-screen max-md:flex hidden z-[300]`}>
             <div className="fixed w-[300px] bg-white h-full">
                 <div className="top-4 right-4 absolute"><IoClose className="text-2xl hover:cursor-pointer" onClick={() => {
                     dispatch(changeToggled())
                 }} />
                 </div>
-                <div className="mt-4 ml-4 flex items-center left-4">
+                <div className="mt-4 ml-4 flex items-center left-4" onClick={() => {
+                    navigate("/auth/account")
+                }}>
                     <img src={image} alt="Image" className="w-[40px] h-[40px] rounded-full border mr-2 " />
                     <div className="text-[14px]">Account</div>
                 </div>

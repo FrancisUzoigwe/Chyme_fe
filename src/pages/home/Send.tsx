@@ -4,10 +4,12 @@ import { MdOutlineChevronRight } from "react-icons/md";
 import { VscAccount } from "react-icons/vsc"
 import { RiInbox2Fill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux";
+import { changeToggled } from "../../global/globalState";
 
 
 const Send = () => {
-
+  const dispatch = useDispatch()
   const motionVariant = {
     open: {
       opacity: 1,
@@ -21,10 +23,15 @@ const Send = () => {
       y: "100px"
     }
   }
+  setTimeout(() => {
+    dispatch(changeToggled())
+  }, 10000)
+
 
   const navigate = useNavigate()
+  const toggle = useSelector((state: any) => state.toggle)
   return (
-    <motion.div variants={motionVariant} initial="close" animate="open" className="w-full min-h-[100vh] flex items-center flex-col shadow-md">
+    <motion.div variants={motionVariant} initial="close" animate="open" className={`w-full min-h-[100vh] flex flex-col items-center  ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"}`}>
       <div className="my-3 text-[25px] font-black text-[#40196D]">Send</div>
       <div className="w-[50%] max-md:w-[90%] min-h-[40%] flex flex-col items-center border py-2 rounded-md">
         <div className="w-full h-auto flex items-center justify-center">

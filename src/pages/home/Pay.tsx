@@ -17,6 +17,10 @@ import { changeToggled } from "../../global/globalState"
 
 
 const Pay = () => {
+  setTimeout(() => {
+    dispatch(changeToggled())
+  }, 10000)
+
 
   const motionVariant = {
     open: {

@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       backgroundColor: {
-        'linear-gradient':'linear-gradient(275deg, #E770C1 11.27%, #9F70FD 88.73%)'
+        'linear-gradient': 'linear-gradient(275deg, #E770C1 11.27%, #9F70FD 88.73%)'
       },
-      backgroundImage:{
-        'statsImage':"url('../Chyme_fe/src/assets/funfact_shape_bg.png')",
+      backgroundImage: {
+        'statsImage': "url('../Chyme_fe/src/assets/funfact_shape_bg.png')",
       }
     },
   },

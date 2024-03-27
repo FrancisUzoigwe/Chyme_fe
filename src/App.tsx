@@ -9,6 +9,7 @@ import { spinUp } from "./api/authApis"
 import Online from "./components/common/OnlineFeature/Online"
 import BackToTopButton from "./components/common/BackToTopButton/BackToTopButton"
 
+
 const App = () => {
   useEffect(() => {
     spinUp()
@@ -19,8 +20,8 @@ const App = () => {
       <PersistGate persistor={persist}>
         <Provider store={store}>
           <RouterProvider router={mainRoute} />
-          <Online/>
-          <BackToTopButton/>
+          <Online />
+          <BackToTopButton />
         </Provider>
       </PersistGate>
     </div>

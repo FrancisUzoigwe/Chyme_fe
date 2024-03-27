@@ -6,8 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { changeToggled } from '../../global/globalState'
 
 const SendBank = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  setTimeout(() => {
+    dispatch(changeToggled())
+  }, 10000)
   const toggle = useSelector((state: any) => state.toggle);
   const motionVariant = {
     open: {
