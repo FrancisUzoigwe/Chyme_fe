@@ -26,6 +26,7 @@ const Signin = () => {
 
   const onHandleSubmit = handleSubmit(async (data) => {
     setLoading(false)
+
     const { email, password } = data
     signinApi({ email, password }).then((res) => {
       navigate("/auth")

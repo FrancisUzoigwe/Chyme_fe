@@ -27,9 +27,9 @@ const Footer = () => {
   };
 
   return (
-    <div className="w-full mt-[40px] flex justify-center items-center flex-col bg-[#40196D] pt-[50px] pb-[20px] mobile:pb-[30px] mobile:pt-[20px] gap-[50px]">
+    <div className="w-full mt-[40px] flex justify-center items-center flex-col bg-[#40196D] pt-[50px] pb-[20px] max-md:pb-[30px] max-md:pt-[20px] gap-[50px]">
       <div
-        className=" flex w-[90%]  justify-between flex-wrap mobile:gap-[35px]"
+        className=" flex w-[90%]  justify-between flex-wrap max-md:gap-[35px]"
       >
         <div className=" w-[300px] flex flex-col gap-[20px] ">
           {" "}
@@ -110,7 +110,7 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className=" text-[white] w-[300px] flex flex-col gap-[10px]  justify-start">
+        <div className=" text-[white] w-[300px] max-lg:mt-3 flex flex-col gap-[10px]  justify-start">
           <text className="text-[19px] leading-[18px] font-[700] hover:cursor-pointer hover:underline hover:underline-offset-2">
             Our NewsLetter
           </text>
@@ -120,14 +120,14 @@ const Footer = () => {
           </text>
           <div>
             <input
-              className=" bg-[#F5F5F5] w-[95%]  mb-4  rounded-[20px] px-3 h-[40px] outline-none text-[16px] font-[500] text-[black] mobile:h-[40px]"
+              className=" bg-[#F5F5F5] w-[95%]  mb-4  rounded-[20px] px-3 h-[40px] outline-none text-[16px] font-[500] text-[black] max-md:h-[40px]"
               required
               maxLength={50}
               type="text"
               placeholder="Your Name"
             />
             <input
-              className=" bg-[#F5F5F5] w-[95%]  mb-4  rounded-[20px] px-3 h-[40px] outline-none text-[16px] font-[500] text-[black] mobile:h-[40px]"
+              className=" bg-[#F5F5F5] w-[95%]  mb-4  rounded-[20px] px-3 h-[40px] outline-none text-[16px] font-[500] text-[black] max-md:h-[40px]"
               required
               maxLength={50}
               type="text"

@@ -5,7 +5,7 @@ import Third from "./Third";
 
 const General = () => {
   return (
-    <div className="flex gap-[20px] flex-col mobile:gap-[50px]">
+    <div className="flex gap-[20px] flex-col max-md:gap-[50px]">
       <First />
       <Second />
       <Third />

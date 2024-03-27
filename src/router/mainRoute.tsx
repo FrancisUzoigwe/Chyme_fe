@@ -20,9 +20,10 @@ import Legal from "../pages/home/settings/Legal";
 import FAQs from "../pages/home/settings/FAQs";
 import EditProfile from "../pages/home/settings/EditProfile";
 import SendBank from "../pages/home/SendBank";
-
-
 import HomeScreen from "../pages/LandingPages/HomeScreen/HomeScreen";
+import Sendtousername from "../pages/home/Sendtousername";
+
+
 
 
 export const mainRoute = createBrowserRouter([
