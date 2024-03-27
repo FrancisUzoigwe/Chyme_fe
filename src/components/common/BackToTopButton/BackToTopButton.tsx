@@ -16,10 +16,10 @@ const BackToTopButton: React.FC = () => {
     if (window.scrollY > 100) {
       setShowButton(true);
 
-      // Calculate the border position based on scroll position
-      setBorderPosition((window.scrollY - 100) * 5); // Adjust the factor for the desired circular movement speed
+      
+      setBorderPosition((window.scrollY - 100) * 5); 
 
-      // Update the border color
+      
       setBorderColor(generateRandomColor());
     } else {
       setShowButton(false);

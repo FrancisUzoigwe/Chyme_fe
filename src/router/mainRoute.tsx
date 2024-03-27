@@ -22,6 +22,12 @@ import EditProfile from "../pages/home/settings/EditProfile";
 import SendBank from "../pages/home/SendBank";
 import HomeScreen from "../pages/LandingPages/HomeScreen/HomeScreen";
 import Sendtousername from "../pages/home/Sendtousername";
+import Personal from "../pages/auth/Personal";
+import Business from "../pages/auth/Business";
+import Company from "../pages/auth/Company";
+import Developers from "../pages/auth/Developers";
+import ContactUs from "../pages/auth/ContactUs";
+import Help from "../pages/auth/Help";
 
 
 
@@ -46,6 +52,30 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/load",
     element: <LoadingPage />,
+  },
+  {
+    path: "/personal",
+    element: <Personal />,
+  },
+  {
+    path: "/business",
+    element: <Business />,
+  },
+  {
+    path: "/company",
+    element: <Company />,
+  },
+  {
+    path: "/developers",
+    element: <Developers />,
+  },
+  {
+    path: "/contactus",
+    element: <ContactUs />,
+  },
+  {
+    path: "/help",
+    element: <Help />,
   },
   {
     path: "/",
