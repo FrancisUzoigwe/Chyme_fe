@@ -1,6 +1,6 @@
 
 import axios from "axios"
-
+import Swal from "sweetalert2"
 const url: string = "https://techify-be.onrender.com"
 
 export const spinUp = async () => {
@@ -18,6 +18,7 @@ export const registerApi = async (data: any) => {
     try {
         return await axios.post(`${url}/api/register`, data).then((res: any) => {
             return res.data?.data
+
         })
     } catch (error: any) {
         console.log(error)
@@ -31,7 +32,13 @@ export const signinApi = async (data: any) => {
             return res.data?.data
         })
     } catch (error: any) {
-        console.log(error)
+        Swal.fire({
+            title: "Error occurred",
+            text: `${error?.response.data?.message}`,
+            icon: "error",
+            timer: 3000,
+            timerProgressBar: true
+        })
     }
 }
 
