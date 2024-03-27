@@ -4,7 +4,7 @@ import { MdChangeCircle } from "react-icons/md"
 import { IoIosClose, IoMdAddCircle } from "react-icons/io"
 import { useState } from "react"
 import { TbTransfer } from "react-icons/tb"
-import { PiDotsNineLight, PiDotsSixVerticalLight, PiDotsSixThin } from "react-icons/pi"
+import { PiDotsNineLight, PiDotsSixThin } from "react-icons/pi"
 import image from "../../../public/vite.svg"
 import Transfers from "../../components/use/Transfers"
 import { useDispatch, useSelector } from "react-redux"
@@ -67,7 +67,6 @@ const DashBoard = () => {
             <div className="flex items-center">
               <div className="text-[14px] border flex items-center text-[#40196D] px-3 py-2 rounded-lg shadow-md hover:cursor-pointer mx-2"><TbTransfer className="mr-1" />Spend</div>
               <div className="text-[14px] border flex items-center text-[#40196D] px-3 py-2 rounded-lg shadow-md hover:cursor-pointer mx-2"><PiDotsNineLight className="mr-1" />Save</div>
-              <div className="text-[14px] border flex items-center text-[#40196D] px-3 py-2 rounded-lg shadow-md hover:cursor-pointer mx-2"><PiDotsSixVerticalLight className="mr-1" />Borrow</div>
               <div className="text-[14px] border flex items-center text-[#40196D] px-3 py-2 rounded-lg shadow-md hover:cursor-pointer mx-2"><PiDotsSixThin className="mr-1" />Invest</div>
             </div>
           </div>

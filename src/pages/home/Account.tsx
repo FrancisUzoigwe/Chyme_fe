@@ -18,11 +18,16 @@ const Account = () => {
 
   const handleCopy = () => {
     setCopySuccess(true);
-    setTimeout(() => setCopySuccess(false), 3000); // Clear the success message after 2 seconds
+    setTimeout(() => setCopySuccess(false), 3000); 
   };
 
   const toggle = useSelector((state: any) => state.toggle)
   const dispatch = useDispatch()
+
+  setTimeout(() => {
+    dispatch(changeToggled())
+  }, 10000)
+
 
   const motionVariant = {
     open: {
@@ -86,10 +91,10 @@ const Account = () => {
 
             <OptionII text="View Profile" icon={<FaAddressCard />} link="/auth/view-profile" />
             <OptionII text="Security" link="/auth/security" icon={<AiOutlineSecurityScan />} />
-            <OptionII text="Statement & Reports" link="/auth/statement" icon={<TbMessageReport/>}/>
-            <OptionII text="Legal" link="/auth/legal" icon={<SiYoutubestudio/>}/>
-            <OptionII text="Saved Cards" link="/auth/cards" icon={<PiCardsFill/>}/>
-            <OptionII text="FAQs" link="/auth/FAQs"  icon={<FaQuestion/>}/>
+            <OptionII text="Statement & Reports" link="/auth/statement" icon={<TbMessageReport />} />
+            <OptionII text="Legal" link="/auth/legal" icon={<SiYoutubestudio />} />
+            <OptionII text="Saved Cards" link="/auth/cards" icon={<PiCardsFill />} />
+            <OptionII text="FAQs" link="/auth/FAQs" icon={<FaQuestion />} />
           </div>
           <div className="my-4" />
           <div className="text-[red] hover:cursor-pointer " onClick={() => {

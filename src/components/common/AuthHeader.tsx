@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux"
 import { toggled } from "../../global/globalState"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-
+import { motion } from "framer-motion"
 const AuthHeader = () => {
     const dispatch = useDispatch()
 
@@ -22,6 +22,68 @@ const AuthHeader = () => {
     const onCompany = () => {
         setCompany(!company)
     }
+    const data1 = [
+        {
+            name: "Discover Personal",
+        },
+        {
+            name: "Transfer && Spend",
+        },
+        {
+            name: "Save ",
+        },
+        {
+            name: "Investments ",
+        },
+
+    ]
+    const data2 = [
+        {
+            name: "Discover Business",
+        },
+        {
+            name: "Business Registration",
+        },
+        {
+            name: "Invoiving ",
+        },
+        {
+            name: "Business API ",
+        },
+
+    ]
+    const data3 = [
+        {
+            name: "Blog",
+        },
+        {
+            name: "Press",
+        },
+        {
+            name: "Join Our Team ",
+        },
+        {
+            name: "About Us ",
+        },
+
+    ]
+
+
+    const motionVariant = {
+        open: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                dalay: 1.3
+            }
+        },
+        close: {
+            opacity: 0,
+            y: "50px",
+
+        }
+    }
+
     return (
         <header className="w-full h-[60px] flex items-center justify-center relative ">
             <header className="flex w-full h-[60px] items-center justify-center z-[900] fixed  bg-white shadow-md shadow-[#cba8f3]">
@@ -31,30 +93,43 @@ const AuthHeader = () => {
                         <div className="ml-24 flex items-center max-lg:hidden">
                             <div className="mx-[14px] relative  hover:cursor-pointer" onMouseEnter={onPersonal} onMouseLeave={onPersonal}>
                                 <div className="flex items-center text-[#40196D]" >Personal <div className="ml-2"><FaCaretDown /></div></div>
-                                {personal ? <div className="absolute w-[200px] rounded-lg right-0 py-3 bg-purple-600 text-white shadow-md hover:cursor-pointer ">
-                                    <div className="my-2 mx-2">Discover Personal</div>
-                                    <div className="my-2 mx-2">Transfer && Spend</div>
-                                    <div className="my-2 mx-2">Save</div>
-                                    <div className="my-2 mx-2">Investments</div>
-                                </div> : null}
+                                {personal ? <motion.div variants={motionVariant} initial="close" animate="open" className="absolute w-[200px] rounded-lg right-0 py-3 bg-purple-600 text-white shadow-md hover:cursor-pointer ">
+                                    {
+                                        data1.map((props) => {
+                                            return (
+                                                <div className="my-2 mx-2">{props.name}</div>
+                                            )
+                                        })
+                                    }
+
+                                </motion.div> : null}
                             </div>
                             <div className="mx-[14px] relative  hover:cursor-pointer" onMouseEnter={onBusiness} onMouseLeave={onBusiness}>
                                 <div className="flex items-center text-[#40196D]" >Businesses <div className="ml-2"><FaCaretDown /></div></div>
-                                {business ? <div className="absolute w-[200px] rounded-lg right-0 py-3 bg-purple-600 text-white shadow-md hover:cursor-pointer ">
-                                    <div className="my-2 mx-2">Discover Business</div>
-                                    <div className="my-2 mx-2">Business Registration</div>
-                                    <div className="my-2 mx-2">Invoicing</div>
-                                    <div className="my-2 mx-2">Business Api</div>
-                                </div> : null}
+                                {business ? <motion.div variants={motionVariant} initial="close" animate="open" className="absolute w-[200px] rounded-lg right-0 py-3 bg-purple-600 text-white shadow-md hover:cursor-pointer ">
+                                    {
+                                        data2.map((props) => {
+                                            return (
+                                                <div className="my-2 mx-2">{props.name}</div>
+                                            )
+                                        })
+                                    }
+
+
+                                </motion.div> : null}
                             </div>
                             <div className="mx-[14px] relative  hover:cursor-pointer" onMouseEnter={onCompany} onMouseLeave={onCompany}>
                                 <div className="flex items-center text-[#40196D]" >Company <div className="ml-2"><FaCaretDown /></div></div>
-                                {company ? <div className="absolute w-[200px] rounded-lg right-0 py-3 bg-purple-600 text-white shadow-md hover:cursor-pointer ">
-                                    <div className="my-2 mx-2">Blog </div>
-                                    <div className="my-2 mx-2">Press </div>
-                                    <div className="my-2 mx-2">Join our team</div>
-                                    <div className="my-2 mx-2">About us</div>
-                                </div> : null}
+                                {company ? <motion.div variants={motionVariant} animate="open" initial="close" className="absolute w-[200px] rounded-lg right-0 py-3 bg-purple-600 text-white shadow-md hover:cursor-pointer ">
+                                    {
+                                        data3.map((props) => {
+                                            return (
+                                                <div className="my-2 mx-2">{props.name} </div>
+                                            )
+                                        })
+                                    }
+
+                                </motion.div> : null}
                             </div>
                         </div>
                     </div>

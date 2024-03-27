@@ -59,7 +59,7 @@ const Register = () => {
       <div className="w-full flex justify-center items-center">
         <motion.form variants={motionVariant} initial="initial" animate="animate" onSubmit={onHandleSubmit} className="w-[400px] max-sm:w-[80%] h-[460px] flex flex-col items-center  bg-white rounded-lg">
           <div className="w-[90%] ">
-            <div className="my-5 font-black text-2xl w-full flex items-center justify-center">Signup to <div><SiMastercomfig className="ml-3 mr-1 text-[#40196D]" /></div> Chyme</div>
+            <div className="my-5 font-black text-2xl w-full flex items-center justify-center">Signup to <div><SiMastercomfig className="ml-3 mr-1 text-[#40196D]" /></div> AJMoney</div>
             <div className="my-1 text-[14px]">To signup, please add an email address and a password to get started.</div>
           </div>
           <div className="w-full  flex flex-col items-center">
