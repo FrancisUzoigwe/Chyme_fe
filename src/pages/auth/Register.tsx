@@ -1,19 +1,19 @@
 import { useState } from "react"
-import { FaEye } from "react-icons/fa"
-import { FaEyeSlash } from "react-icons/fa6"
-import { SiMastercomfig } from "react-icons/si"
+import LoadingPage from "./LoadingPage"
+import student from "../../assets/mainWoman.jpg"
 import * as yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Link, useNavigate } from "react-router-dom"
 import { registerApi } from "../../api/authApis"
-import LoadingPage from "./LoadingPage"
-import { motion } from "framer-motion"
+import { useNavigate } from "react-router-dom"
+
 
 const Register = () => {
+  const [loading, setLoading] = useState<boolean>(false)
+  const navigate = useNavigate()
   const AuthSchema = yup.object({
-    name: yup.string().required(),
     email: yup.string().required(),
+    name: yup.string().required(),
     password: yup.string().required()
   })
 
@@ -21,93 +21,133 @@ const Register = () => {
     resolver: yupResolver(AuthSchema)
   })
 
-  const [loading, setLoading] = useState<boolean>(false)
-
-  const onHandleSubmit = handleSubmit(async (data: any) => {
+  const onHandleSubmit = handleSubmit(async (data) => {
     setLoading(false)
-    const { name, email, password } = data;
-    registerApi({ name, email, password }).then((res) => {
-      console.log(res)
+    const { email, password, name } = data
+
+    registerApi({ email, password, name }).then((res) => {
       navigate("/email")
+      return res.data.data
     })
     setLoading(true)
   })
 
-  const navigate = useNavigate()
-  const [eye, setEye] = useState<boolean>(false)
-  const onEye = () => {
-    setEye(!eye)
+  const [show, setShow] = useState<boolean>(false)
+  const onShow = () => {
+    setShow(!show)
+  }
+
+  const [checked, setChecked] = useState<boolean>(false)
+
+  const onChecked = () => {
+    setChecked(!checked)
   }
 
 
-  const motionVariant = {
-    animate: {
-      y: 0, opacity: 1, transition: {
-        duration: 0.5
-      }
-    },
-    initial: {
-      y: "-200px",
-      opacity: 0
-    }
-  }
+
   return (
-    <div className="w-full h-screen flex justify-center items-center bg-purple-400 relative"
-    >
+    <>
       {loading && <LoadingPage />}
-
-      <div className="w-full flex justify-center items-center">
-        <motion.form variants={motionVariant} initial="initial" animate="animate" onSubmit={onHandleSubmit} className="w-[400px] max-sm:w-[80%] h-[460px] flex flex-col items-center  bg-white rounded-lg">
-          <div className="w-[90%] ">
-            <div className="my-5 font-black text-2xl w-full flex items-center justify-center">Signup to <div><SiMastercomfig className="ml-3 mr-1 text-[#40196D]" /></div> AJMoney</div>
-            <div className="my-1 text-[14px]">To signup, please add an email address and a password to get started.</div>
-          </div>
-          <div className="w-full  flex flex-col items-center">
-            <div className="h-[45px] w-[90%] my-4">
-              <label htmlFor="UserEmail" className="block  text-[14px]  font-medium text-gray-700"> Name </label>
-              <input
-                {...register("name")}
-                id="UserEmail"
-                placeholder="JohnDoe"
-                className="mt-1 w-full border outline-none pl-3 h-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-              />
-            </div>
-            <div className="h-[45px] w-[90%] my-4">
-              <label htmlFor="UserEmail" className="block  text-[14px]  font-medium text-gray-700"> EmailAddress </label>
-              <input
-                type="email"
-                {...register("email")}
-                id="UserEmail"
-                placeholder="john@rhcp.com"
-                className="mt-1 w-full border outline-none pl-3 h-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-              />
-            </div>
-            <div className="h-[45px] w-[90%] my-5 relative ">
-              <label htmlFor="UserEmail" className="block  text-[14px]  font-medium text-gray-700 "> Password </label>
-              <div className="absolute right-3 top-10 hover:cursor-pointer" onClick={() => {
-                onEye()
-              }}>{eye ? <FaEye className="text-xl" /> : <FaEyeSlash className="text-xl" />}</div>
-              <input
-                type={eye ? "password" : "text"}
-                id="UserEmail"
-                placeholder="....."
-                {...register("password")}
-                className="mt-1 w-full border outline-none pl-3 h-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-              />
-            </div>
-          </div>
-          <div className="w-[90%] flex items-center justify-between my-3 text-[13px] hover:cursor-pointer">
-            <div>Forgot password?</div>
-            <Link to="/signin">
-              <div>Already have an account ?
-                <span className="text-[red] ml-[2px]">Signin</span>
+      <div className='w-full min-h-[100vh] flex justify-center items-center bg-[#40196D]'>
+        <div className='w-[90%] items-center flex justify-center h-[550px] rounded-xl bg-white text-black'>
+          <div className='w-[90%] flex items-center justify-between h-full'>
+            <form onSubmit={onHandleSubmit} className='w-[45%]  max-md:w-full h-full flex flex-col items-center rounded-md'>
+              <div className='flex justify-between items-center w-full my-2'>
+                <div className="font-bold">AJMoney</div>
+                <div className='flex items-center text-[13px] font-bold '>Have an account?  <button className="ml-2 border border-[#40196D] outline-none py-2 px-4 rounded-3xl hover:text-white hover:bg-[#40196D] transition duration-300 " onClick={() => {
+                  navigate("/signin")
+                }}>Sign In</button></div>
               </div>
-            </Link>
+              <div className="mt-16 text-[40px] font-black text-center">Create An Account</div>
+              <div className=" text-gray-400 text-[13px]">Create your AJMoney account.</div>
+              <div className="w-[70%] mt-4">
+                <div className="w-full h-[45px] ">
+                  <label
+                    htmlFor="UserEmail"
+                    className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+                  >
+                    <input
+                      type="email"
+                      id="UserEmail"
+                      placeholder="Email"
+                      {...register("email")}
+                      className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                    />
+
+                    <span
+                      className="absolute start-3 top-3 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs"
+                    >
+                      Email
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div className="w-[70%] mt-4">
+                <div className="w-full h-[45px] ">
+                  <label
+                    htmlFor="UserEmail"
+                    className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+                  >
+                    <input
+                      type="email"
+                      id="UserEmail"
+                      placeholder="Name"
+                      {...register("name")}
+                      className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                    />
+
+                    <span
+                      className="absolute start-3 top-3 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs"
+                    >
+                      Name
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div className="w-[70%] mt-4">
+                <div className="w-full h-[45px] ">
+                  <label
+                    htmlFor="UserEmail"
+                    className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+                  >
+                    <div className="absolute right-2 hover:cursor-pointer text-[13px]" onClick={() => {
+                      onShow()
+                    }}>{!show ? "Show" : "Hide"}</div>
+                    <input
+                      type={`${!show ? "password" : "text"}`}
+                      id="UserEmail"
+                      {...register("password")}
+                      placeholder="Password"
+                      className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                    />
+
+                    <span
+                      className="absolute start-3 top-3 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs"
+                    >
+                      Password
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div className="w-[70%] my-3 flex items-center">
+                <input type="checkbox" onClick={() => {
+                  onChecked()
+                }} />
+                <div className="text-[13px] ml-2">Remember Me</div>
+              </div>
+              <button className={`w-[70%] rounded-3xl h-[45px] transition duration-300  ${checked ? "bg-[#40196D] text-white" : "text-gray-500 bg-gray-300"}`} type="submit" disabled={!checked}>Sign In</button>
+              <div className="w-full flex items-center justify-center h-[20px] text-[14px] my-2 hover:cursor-pointer">
+                Forgot Passcode? <div className="ml-2 ">Reset</div>
+              </div>
+            </form>
+            <div className="max-md:hidden w-[50%] border h-[85%] rounded-2xl overflow-hidden">
+              <img src={student} alt="" loading="lazy" className="object-cover w-full h-full " />
+            </div>
           </div>
-          <button className="px-36 rounded-lg py-[10px] text-white bg-[purple]" type="submit">Signup</button>
-        </motion.form>
+
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

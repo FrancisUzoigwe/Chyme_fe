@@ -59,6 +59,7 @@ const AuthSider = () => {
         parentRefs.current = parentRefs.current.slice(0, data.length);
     }, [data.length]);
 
+
     const toggleDropdown = (index: number) => {
         setIsOpen(prevState => {
             const newState = [...prevState];
@@ -91,8 +92,7 @@ const AuthSider = () => {
     return (
         <>
             <motion.div variants={childrenMotion} initial="close" animate="open" className="w-full min-h-[100vh] top-0 bg-[white] items-center flex-col z-[900] max-lg:flex hidden sticky">
-                <div className="w-[90%] items-center my-4 h-auto flex justify-between ">
-                    <div className="text-[#40196D] font-bold">AJMoney</div>
+                <div className="w-[90%] items-center my-4 h-auto flex justify-end ">
                     <IoMdClose className="text-2xl hover:scale-[1.2] hover:cursor-pointer transition duration-300 text-[#40196D]" onClick={() => {
                         dispatch(changeToggled())
                     }} />
@@ -108,16 +108,17 @@ const AuthSider = () => {
                 <div className="w-[90%]  flex flex-col items-center my-3 ">
                     {data?.map((prop, index) => {
                         return (
-                            <div className="flex flex-col items-center w-full" key={index} onClick={() => reveal(index)} ref={el => parentRefs.current[index] = el}>
+                            <div className="flex flex-col items-center w-full" key={index} onClick={() => reveal(index)} >
                                 <motion.div variants={childrenMotion} className=" w-full items-center justify-between py-5 text-[#40196D] hover:cursor-pointer flex border-b-2 "
+
                                 >
                                     <div className=" font-bold">{prop?.title}</div>
                                     <div><FaCaretRight /></div>
                                 </motion.div>
-                                {isOpen[index] && <div className="my-1 w-full text-[#40196D]">{prop.dropdown}</div>}
-                                {isOpen[index] && <div className="my-1 w-full text-[#40196D]">{prop.dropdown1}</div>}
-                                {isOpen[index] && <div className="my-1 w-full text-[#40196D]">{prop.dropdown2}</div>}
-                                {isOpen[index] && <div className="my-1 w-full text-[#40196D]">{prop.dropdown3}</div>}
+                                {isOpen[index] && <div className="my-[2px] w-full text-[#40196D]"  >{prop.dropdown}</div>}
+                                {isOpen[index] && <div className="my-[2px] w-full text-[#40196D]">{prop.dropdown1} </div>}
+                                {isOpen[index] && <div className="my-[2px] w-full text-[#40196D]">{prop.dropdown2}</div>}
+                                {isOpen[index] && <div className="my-[2px] w-full text-[#40196D]">{prop.dropdown3}</div>}
                             </div>
                         )
                     })}
