@@ -10,7 +10,7 @@ const Change: React.FC<iChange> = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 9000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length]);
