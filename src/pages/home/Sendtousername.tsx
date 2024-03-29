@@ -24,6 +24,9 @@ const Sendtousername = () => {
     };
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    setTimeout(() => {
+        dispatch(changeToggled())
+    }, 10000)
     return (
         <>
             <motion.div variants={motionVariant} initial="close" animate="open" className="w-full min-h-[100vh] flex flex-col items-center" onClick={() => {
