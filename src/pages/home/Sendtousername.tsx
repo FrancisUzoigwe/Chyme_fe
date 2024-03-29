@@ -22,6 +22,7 @@ const Sendtousername = () => {
             y: "100px",
         },
     };
+    
     const navigate = useNavigate()
     const dispatch = useDispatch()
     setTimeout(() => {
