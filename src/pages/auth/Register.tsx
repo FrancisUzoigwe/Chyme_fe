@@ -49,7 +49,7 @@ const Register = () => {
     <>
       {loading && <LoadingPage />}
       <div className='w-full min-h-[100vh] flex justify-center items-center bg-[#40196D]'>
-        <div className='w-[90%] items-center flex justify-center h-[550px] rounded-xl bg-white text-black'>
+        <div className='w-[90%] items-center flex justify-center h-[520px] rounded-xl bg-white text-black'>
           <div className='w-[90%] flex items-center justify-between h-full'>
             <form onSubmit={onHandleSubmit} className='w-[45%]  max-md:w-full h-full flex flex-col items-center rounded-md'>
               <div className='flex justify-between items-center w-full my-2'>
