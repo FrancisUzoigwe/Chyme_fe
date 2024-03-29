@@ -4,6 +4,7 @@ import Swal from "sweetalert2"
 const url: string = "https://techify-be.onrender.com"
 
 
+
 export const spinUp = async () => {
     try {
         return await axios.get(`${url}`).then((res: any) => {
