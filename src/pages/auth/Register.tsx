@@ -17,6 +17,7 @@ const Register = () => {
     password: yup.string().required()
   })
 
+  
   const { handleSubmit, register } = useForm({
     resolver: yupResolver(AuthSchema)
   })
