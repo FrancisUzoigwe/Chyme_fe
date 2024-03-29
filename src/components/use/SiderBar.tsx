@@ -38,7 +38,7 @@ const SiderBar = () => {
                     dispatch(changeToggled())
                 }} />
                 </div>
-                <div className="mt-4 ml-4 flex items-center left-4" onClick={() => {
+                <div className="mt-4 ml-4 flex items-center left-4 hover:cursor-pointer" onClick={() => {
                     navigate("/auth/account")
                 }}>
                     <img src={image} alt="Image" className="w-[40px] h-[40px] rounded-full border mr-2 " />
