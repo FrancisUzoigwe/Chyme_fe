@@ -1,32 +1,15 @@
-import { RxDotsHorizontal } from "react-icons/rx"
-import { GiNigeria } from "react-icons/gi"
-import { MdChangeCircle } from "react-icons/md"
-import { IoIosClose, IoMdAddCircle } from "react-icons/io"
-import { useState } from "react"
-import { TbTransfer } from "react-icons/tb"
-import { PiDotsNineLight, PiDotsSixThin } from "react-icons/pi"
-import image from "../../../public/vite.svg"
-import Transfers from "../../components/use/Transfers"
-import { useDispatch, useSelector } from "react-redux"
-import { changeToggled } from "../../global/globalState"
-import "../../components/use/Transfer.css"
 import { motion } from "framer-motion"
+import { LuSettings2 } from "react-icons/lu"
+import { IoMdNotifications } from "react-icons/io"
+import { ScaleLoader } from "react-spinners"
+import { FaEye, FaEyeSlash } from "react-icons/fa"
+import { useState } from "react"
+import { SlOptions } from "react-icons/sl"
+import { RiMastercardFill } from "react-icons/ri"
+import { PiDownloadSimple } from "react-icons/pi"
+import { BiChevronDown } from "react-icons/bi"
+import Transactions from "../../components/use/Transactions"
 const DashBoard = () => {
-
-  const [state, setState] = useState<boolean>(false)
-  const onState = () => {
-    setState(!state)
-  }
-
-  const dispatch = useDispatch()
-
-
-  const [beneficiary, setBeneficiary] = useState<boolean>(false)
-  const onBeneficiary = () => {
-    setBeneficiary(!beneficiary)
-  }
-  const toggle = useSelector((state: any) => state.toggle)
-
   const motionVariant = {
     open: {
       opacity: 1,
@@ -40,69 +23,125 @@ const DashBoard = () => {
       y: "100px"
     }
   }
+
+  const [eye, setEye] = useState<boolean>(false)
+  const onEye = () => {
+    setEye(!eye)
+  }
   return (
     <>
-      <motion.div variants={motionVariant} initial="close" animate="open" className={`w-full min-h-[40vh] flex items-center flex-col ${toggle ? "bg-[#d8d8d8]" : "bg-[#FFFFFF]"}`} onClick={() => {
-        dispatch(changeToggled())
-      }}>
-        <div className="w-[50%] max-lg:w-[80%] max-md:w-[95%] flex flex-col items-center h-full my-5">
-          <div className="w-full max-md:flex-col-reverse flex flex-col">
-            <div>
-              <div className="flex justify-between items-center">
-                <div className="flex items-center justify-center">
-                  <div><RxDotsHorizontal className="text-[40px] max-md:text-[30px] my-2 mx-3 px-2 rounded-full bg-gray-400 hover:bg-gray-800 transition duration-300 hover:cursor-pointer hover:text-white max-md:hidden" /></div>
-                  <div><GiNigeria className="text-green-600 text-5xl max-md:text-5xl" /></div>
-                  <div className="mx-3 text-3xl max-md:text-3xl font-black hover:cursor-pointer" onClick={() => {
-                    onState()
-                  }}><span className="mx-1">₦</span>{state ? "300,000.00" : "*****"}</div>
-                </div>
-                <div className="flex flex-col items-end ">
-                  <div className="px-3 flex items-center py-2 hover:cursor-pointer border border-gray my-2  rounded-md shadow-md max-md:hidden">< MdChangeCircle className="mr-2 text-[#40196D] text-[14px] " />Convert Money</div>
-                  <div className="px-3 py-2 hover:cursor-pointer  rounded-md shadow-md  flex items-center max-md:hidden border"><IoMdAddCircle className="mr-2 text-[#40196D] text-[14px]" />Add Money</div>
-
-                  <div><RxDotsHorizontal className="hidden text-[40px] max-md:text-[30px] my-2 mx-3 px-2 rounded-full bg-gray-400 hover:bg-gray-800 transition duration-300 hover:cursor-pointer hover:text-white max-md:block" /></div>
+      <motion.div variants={motionVariant} initial="close" animate="open" className="w-full min-h-[100vh] flex justify-center">
+        <div className="w-[98%]  h-[90%] rounded-lg my-3 flex flex-col items-center">
+          <div className="w-[99%] h-[250px] my-3 flex justify-between">
+            <div className="w-[67%] h-full flex-col flex items-center max-md:w-full">
+              <div className="flex items-center justify-between w-[95%]">
+                <div className="text-[#40196D] font-bold">Welcome Back , <span className="text-[20px]">Francis</span></div>
+                <div className="flex items-center ">
+                  <div><LuSettings2 className=" hover:cursor-pointer text-base text-[#40196D]" /></div>
+                  <div className="ml-3"><IoMdNotifications className="text-base hover:cursor-pointer text-[#40196D]" /></div>
                 </div>
               </div>
-            </div>
-            <div className="flex items-center">
-              <div className="text-[14px] border flex items-center text-[#40196D] px-3 py-2 rounded-lg shadow-md hover:cursor-pointer mx-2"><TbTransfer className="mr-1" />Spend</div>
-              <div className="text-[14px] border flex items-center text-[#40196D] px-3 py-2 rounded-lg shadow-md hover:cursor-pointer mx-2"><PiDotsNineLight className="mr-1" />Save</div>
-              <div className="text-[14px] border flex items-center text-[#40196D] px-3 py-2 rounded-lg shadow-md hover:cursor-pointer mx-2"><PiDotsSixThin className="mr-1" />Invest</div>
-            </div>
-          </div>
-          <div className="w-full h-[60px] flex items-center justify-center mt-10">
-            {!beneficiary ? <div className="w-full max-lg:w-full max-md:w-[95%] h-full border flex items-center justify-between border-gray-300 rounded-md shadow-md ">
-              <div className="w-full h-[60px] flex items-center justify-between hover:cursor-pointer">
-                <div className="flex items-center ">
-                  <img alt="Img" src={image} className="w-[45px] object-cover h-[45px] rounded-full border border-gray-500 mx-2" />
-                  <div className="">
-                    <div className="font-black text-[14px] text-[#40196D]">Beneficiaries</div>
-                    <div className="text-[12px] font-bold">Add People</div>
+              <div className="w-[95%] h-[150px]  flex justify-between items-center my-10">
+                <div className="flex items-center">
+                  <div>
+                    <div className="text-[35px] font-black">{eye ? "₦20,300.36" : "₦***.**"}</div>
+                    <div className="text-[12px] font-semibold text-gray-700">Your Money</div>
+                    <div className="text-[12px] font-semibold text-gray-700 my-1">Credit Limit</div>
+                    <div className="flex my-5">
+                      <button className="bg-[#40196D] text-white px-3 py-3 text-[14px] rounded-md font-thin">Make Payment</button>
+                      <button className="ml-4 border-[1px] border-[#40196D] text-[14px]  px-3 py-3 rounded-md hover:bg-gray-800 transition duration-300 hover:cursor-pointer hover:text-white text-[#40196D]">Requisites </button>
+                    </div>
+                  </div>
+                  <div className="-ml-6" onClick={() => {
+                    onEye()
+                  }}>{!eye ? <FaEye className="text-2xl hover:cursor-pointer" /> : <FaEyeSlash className="text-2xl hover:cursor-pointer" />}</div>
+                </div>
+                <button className=" max-lg:hidden px-3 py-3 rounded-md bg-[#40196D] text-white">Link to Bank Account </button>
+                <div className="my-3 max-sm:hidden">
+                  <div className="flex items-center my-4 border rounded-md py-3  px-4 max-lg:px-2">
+                    <div>
+                      <div className="font-bold text-[20px]">₦20,000</div>
+                      <div className="text-[12px] font-black">Total Revenue</div>
+                    </div>
+                    <div className="ml-2 px-2"><ScaleLoader color="#40196D" height={25} /></div>
+                  </div>
+                  <div className="flex items-center my-4 border rounded-md py-3  px-4 max-lg:px-2">
+                    <div>
+                      <div className="font-bold text-[20px]">₦1,200</div>
+                      <div className="text-[12px] font-black">Total Expense</div>
+                    </div>
+                    <div className="ml-2 px-2"><ScaleLoader color="#40196D" height={25} /></div>
                   </div>
                 </div>
-                <div className="mr-3 my-2 mx-2 rounded-full bg-gray-200 transition duration-300 hover:bg-gray-400"><IoIosClose className="text-2xl hover:cursor-pointer" onClick={() => {
-                  onBeneficiary()
-                }} /></div>
               </div>
-            </div> : null}
+            </div>
+            <div className="w-[33%] h-full  max-md:hidden flex flex-col items-center">
+              <div className="w-[95%] flex items-center justify-between h-[40px]">
+                <div className="text-[13px] font-black text-[#40196D]">My Card</div>
+                <div><SlOptions className="hover:cursor-pointer text-[#40196D]" /></div>
+              </div>
+              <div className="min-w-[90%] border h-[200px] hover:cursor-pointer rounded-md bg-gradient-to-tr from-black via-gray-700 to-gray-300 flex flex-col items-center">
+                <div className="w-[90%] text-white h-auto my-3"><RiMastercardFill className="text-2xl" /></div>
+                <div className="my-5 text-white w-[95%] text-[20px]">**** **** **** 1234</div>
+                <div className="w-[95%] flex justify-between items-center">
+                  <div className="text-white">
+                    <div>Francis Uzoigwe</div>
+                    <div className="text-[12px] font-thin">09/2025</div>
+                  </div>
+                  <div><RiMastercardFill className="text-2xl text-white" /></div>
+                </div>
+              </div>
+            </div>
           </div>
-          {/* Transfer Detail side */}
-          <div className="w-full max-lg:w-full max-md:w-full flex flex-col items-center h-full my-5">
-            <div className="transfer">
-              <Transfers />
-              <Transfers />
-              <Transfers />
-              <Transfers />
-              <Transfers />
-              <Transfers />
+          <div className="w-[95%] h-auto flex flex-col">
+            <div className="w-full flex justify-between">
+              <div className="w-[67%] max-md:w-full flex-col  ">
+                <div className="flex w-[95%] items-center justify-between">
+                  <div className="font-black">Money Flow</div>
+                  <div className="flex items-center ">
+                    <div className=" flex items-center text-[14px] px-4 py-[6px] rounded-md border border-black hover:cursor-pointer">Yearly <div><BiChevronDown /></div></div>
+                    <div className="ml-3 hover:cursor-pointer"><PiDownloadSimple size={35} className=" border px-2 py-2 border-black rounded-md" /></div>
+                  </div>
+                </div>
+                <div className="w-full my-2 ">
+                  <div className="grid grid-cols-3 w-full ">
+                    <div>
+                      <div className="text-[13px]">Total Balance</div>
+                      <div className="font-black text-[15px]">{eye ? <div>₦ 21,200.00</div> : <div>₦ **,***.**</div>}</div>
+                    </div>
+                    <div>
+                      <div className="text-[13px]">Total Income</div>
+                      <div className="font-black text-[15px]">{eye ? <div>₦ 20,200.00</div> : <div>₦ **,***.**</div>}</div>
+                    </div>
+                    <div>
+                      <div className="text-[13px]">Total Outcome</div>
+                      <div className="font-black text-[15px]">{eye ? <div>₦ 1,200.00</div> : <div>₦ **,***.**</div>}</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-[95%] flex items-center h-[300px] border my-3 rounded-md justify-center">Chart Data Here</div>
+              </div>
+              <div className="w-[37%] h-full max-md:hidden flex flex-col items-center">
+                <div className="w-full flex items-center justify-between">
+                  <div className="leading-tight">
+                    <div className="text-[12px] font-bold">Current Account</div>
+                    <div className="text-2xl font-bold">₦20,000</div>
+                  </div>
+                  <button className="px-5 py-2 bg-black text-white text-[14px] rounded-sm">Add Cash</button>
+                </div>
+                <div className="border w-full my-2 ml-2 " />
+                <div className="flex w-full items-center justify-between">
+                  <div className="font-black">Transactions</div>
+                  <div className="underline text-[14px]">View All</div>
+                </div>
+                <div className="w-full h-[250px]  overflow-y-auto"><Transactions /></div>
+              </div>
             </div>
           </div>
         </div>
-
-      </motion.div>
+      </motion.div >
     </>
   )
 }
-
 
 export default DashBoard
