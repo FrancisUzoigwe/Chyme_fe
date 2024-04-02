@@ -4,18 +4,21 @@ import Landing from "../HeroPage/Landing";
 import Join from "../Join/Join";
 import General from "../Middle/General";
 import Stats from "../Stats/Stats";
-import { changeToggled } from "../../../global/globalState";
-import AuthSider from "../../../components/use/AuthSider";
+import { changeToggled } from "../../../Components/global/globalState";
+import AuthSider from "../../../Components/blocks/AuthSider";
 
 const HomeScreen = () => {
-  const dispatch = useDispatch()
-  const toggle = useSelector((state: any) => state.toggle)
+  const dispatch = useDispatch();
+  const toggle = useSelector((state: any) => state.toggle);
   return (
     <>
       {toggle && <AuthSider />}
-      <div className="" onClick={() => {
-        dispatch(changeToggled())
-      }}>
+      <div
+        className=""
+        onClick={() => {
+          dispatch(changeToggled());
+        }}
+      >
         <Landing />
         <Box />
         <Stats />

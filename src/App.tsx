@@ -1,31 +1,23 @@
-import { RouterProvider } from "react-router-dom"
-import { mainRoute } from "./router/mainRoute"
-import { Provider } from "react-redux"
-import { store } from "./global/store"
-import { PersistGate } from "redux-persist/integration/react"
-import { persistStore } from "redux-persist"
-import { useEffect } from "react"
-import { spinUp } from "./api/authApis"
-import Online from "./components/common/OnlineFeature/Online"
-import BackToTopButton from "./components/common/BackToTopButton/BackToTopButton"
-
+import { RouterProvider } from "react-router-dom";
+import { Element } from "./routes/PublicRoute";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
+import { store } from "./Components/global/store";
+import { Provider } from "react-redux";
+import Online from "./Components/common/OnlineFeature/Online";
+import BackToTopButton from "./Components/common/BackToTopButton/BackToTopButton";
 
 const App = () => {
-  useEffect(() => {
-    spinUp()
-  }, [])
-  const persist = persistStore(store)
+  const persist = persistStore(store);
   return (
-    <div>
-      <PersistGate persistor={persist}>
-        <Provider store={store}>
-          <RouterProvider router={mainRoute} />
-          <Online />
-          <BackToTopButton />
-        </Provider>
-      </PersistGate>
-    </div>
-  )
-}
+    <PersistGate persistor={persist}>
+      <Provider store={store}>
+        <RouterProvider router={Element} />
+        <Online />
+        <BackToTopButton />
+      </Provider>
+    </PersistGate>
+  );
+};
 
-export default App
+export default App;

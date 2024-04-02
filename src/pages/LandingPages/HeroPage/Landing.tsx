@@ -1,10 +1,11 @@
-import Change from "../../../components/common/Change";
+
 import money from "../../../assets/money.png";
 import money1 from "../../../assets/money1.png";
 import hand from "../../../assets/hand.png";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Zoom } from "react-swift-reveal";
+import Change from "./Change";
 
 const Landing = () => {
   const images = [money, money1, hand];

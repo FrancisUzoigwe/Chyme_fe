@@ -2,44 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: Poppin;
-  src: url(/font/Poppins-Regular.ttf);
+
+aside a:hover::before {
+  position: absolute;
+  content: '';
+  height: 30px;
+  width: 70px;
+  background: transparent;
+  right: 0;
+  bottom: 100%;
+  border-bottom-right-radius: 18px;
+  box-shadow:  0 17px 0 #fff;
+}
+aside a:hover::after {
+  position: absolute;
+  content: '';
+  height: 30px;
+  width: 70px;
+  background: transparent;
+  right: 0;
+  top: 100%;
+  border-top-right-radius: 18px;
+  box-shadow:  0 -17px 0 #fff;
 }
 
-@font-face {
-  font-family: Bold;
-  src: url(/font/Poppins-Bold.ttf);
-}
 
-.Poppin {
-  font-family: Poppin;
-}
 
-.Big {
-  font-family: Big;
-}
 :root {
-  font-family: Poppin, Big;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+
+  background-color: #fff;
 }
-
-
-::-webkit-scrollbar {
-  width: 14px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: lightgray;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 30px;
-  background-color: #40196D;
-  border: 5px solid transparent;
-  background-clip: content-box;
-  height: 50px;
-}
-
