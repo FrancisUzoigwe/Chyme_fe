@@ -12,13 +12,25 @@ import Mobilehome from "../Mobilehome";
 import Card from "./Card";
 import Charts from "./Charts";
 import { ScaleLoader } from "react-spinners";
+import { motion } from "framer-motion"
+import { useDispatch } from "react-redux";
+import { logOut } from "../../../Components/global/globalState";
 import { Link } from "react-router-dom";
+
 
 const Dashboardhome = () => {
   const [eye, setEye] = useState<boolean>(false);
   const onEye = () => {
     setEye(!eye);
   };
+
+  const [drop, setDrop] = useState<boolean>(false)
+  const onDrop = () => {
+    setDrop(!drop);
+  }
+
+  const dispatch = useDispatch()
+
   return (
     <>
       <div className="w-[82%] bg-white absolute right-0  rounded-tl-[30px] rounded-bl-[30px] pt-[20px] pb-[10px] pl-[27px] pr-[27px] flex-col md:w-[100%] md:hidden sm:hidden">
@@ -47,23 +59,34 @@ const Dashboardhome = () => {
               <div className="w-[10px] h-[10px] rounded-full bg-[#EA8F95] absolute right-[0px] top-[3px]"></div>
             </div>
 
-            <Link to="/dashboard/my-account">
-              <div className="flex items-center ml-[40px] cursor-pointer">
-                <div className="w-[35px] h-[35px] rounded-full">
-                  <img
-                    src={img}
-                    alt=""
-                    className="w-[100%] h-[100%] object-cover"
-                  />
-                </div>
-                <p className="ml-[7px] text-[14px] text-[#54657E]">
-                  Danielle Francis
-                </p>
-                <div className="text-[#54657E] ml-[15px]">
-                  <IoMdArrowDropdown />
-                </div>
+            <div className="flex items-center ml-[40px] cursor-pointer relative" onMouseEnter={onDrop} onMouseLeave={onDrop}>
+              {drop ? <motion.div initial={{ y: "80px", opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="absolute w-full h-[150px] z-[300] flex flex-col items-center top-8 bg-white rounded-md shadow-md right-0">
+                <Link to="/dashboard/my-account">
+
+                  <div className="my-4 flex items-center">
+                    <img src="" className="w-[35px] h-[35px] rounded-full border  mr-3" alt="" />
+                    <div className="">Danielle</div>
+                  </div>
+                </Link>
+                <div className="text-[red] " onClick={() => {
+                  dispatch(logOut())
+                }}>Logout</div>
+              </motion.div> : null}
+              <div className="w-[35px] h-[35px] rounded-full">
+                <img
+                  src={img}
+                  alt=""
+                  className="w-[100%] h-[100%] object-cover"
+                />
               </div>
-            </Link>
+              <p className="ml-[7px] text-[14px] text-[#54657E]">
+                Danielle Francis
+              </p>
+              <div className="text-[#54657E] ml-[15px]">
+                <IoMdArrowDropdown />
+              </div>
+            </div>
+
           </div>
         </div>
 
