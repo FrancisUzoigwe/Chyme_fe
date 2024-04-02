@@ -21,6 +21,7 @@ import HomeScreen from "../Pages/LandingPages/HomeScreen/HomeScreen";
 import LandingPageLayout from "../Components/Layout/LandingPageLayout";
 import Dashboardhome from "../Pages/DashboardPages/DashBoardHome/Dashboardhome";
 import Pay from "../Pages/DashboardPages/Pay/Pay";
+import PrivateRoute from "./PrivateRoute";
 
 export const Element = createBrowserRouter([
   {
@@ -55,7 +56,7 @@ export const Element = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       {
         index: true,
